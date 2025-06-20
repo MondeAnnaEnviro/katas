@@ -1,17 +1,24 @@
 package org.codingdojo.yatzy.one;
 
+import java.util.Arrays;
+import java.util.List;
 
 public class YatzyOne {
 
-    public static int chance(int d1, int d2, int d3, int d4, int d5)
-    {
-        int total = 0;
-        total += d1;
-        total += d2;
-        total += d3;
-        total += d4;
-        total += d5;
-        return total;
+    private List<Integer> dice;
+    protected Integer[] diceArray;
+
+    public YatzyOne(){}
+
+    public YatzyOne( Integer... dice ){
+        this.dice = Arrays.asList( dice );
+        this.diceArray = dice;
+    }
+
+    public int chance(){
+        return dice.stream()
+            .mapToInt( Integer::valueOf )
+            .sum();
     }
 
     public static int yatzy(int... dice)
@@ -58,25 +65,12 @@ public class YatzyOne {
         return s;
     }
 
-    protected int[] dice;
-    public YatzyOne() {}
-    public YatzyOne(int d1, int d2, int d3, int d4, int _5)
-    {
-        this();
-        dice = new int[5];
-        dice[0] = d1;
-        dice[1] = d2;
-        dice[2] = d3;
-        dice[3] = d4;
-        dice[4] = _5;
-    }
-
     public int fours()
     {
         int sum;    
         sum = 0;
         for (int at = 0; at != 5; at++) {
-            if (dice[at] == 4) {
+            if (diceArray[at] == 4) {
                 sum += 4;
             }
         }
@@ -87,8 +81,8 @@ public class YatzyOne {
     {
         int s = 0;
         int i;
-        for (i = 0; i < dice.length; i++) 
-            if (dice[i] == 5)
+        for (i = 0; i < diceArray.length; i++) 
+            if (diceArray[i] == 5)
                 s = s + 5;
         return s;
     }
@@ -96,8 +90,8 @@ public class YatzyOne {
     public int sixes()
     {
         int sum = 0;
-        for (int at = 0; at < dice.length; at++) 
-            if (dice[at] == 6)
+        for (int at = 0; at < diceArray.length; at++) 
+            if (diceArray[at] == 6)
                 sum = sum + 6;
         return sum;
     }

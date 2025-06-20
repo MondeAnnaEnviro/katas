@@ -1,5 +1,6 @@
 package org.codingdojo.yatzy.one;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
@@ -8,11 +9,9 @@ import org.junit.jupiter.api.Test;
 public class YatzyOneTest {
 
     @Test
-    public void chance_scores_sum_of_all_dice() {
-        int expected = 15;
-        int actual = YatzyOne.chance(2,3,4,5,1);
-        assertEquals(expected, actual);
-        assertEquals(16, YatzyOne.chance(3,3,4,5,1));
+    public void chanceSumsAllDice(){
+        assertThat( new YatzyOne( 2, 3, 4, 5, 1 ).chance() ).isEqualTo( 15 );
+        assertThat( new YatzyOne( 3, 3, 4, 5, 1 ).chance() ).isEqualTo( 16 );
     }
 
     @Test public void yatzy_scores_50() {
