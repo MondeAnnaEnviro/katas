@@ -41,11 +41,10 @@ public class YatzyOneTest {
     }
 
     @Test
-    public void fours_test() 
-    {
-        assertEquals(12, new YatzyOne(4,4,4,5,5).fours());
-        assertEquals(8, new YatzyOne(4,4,5,5,5).fours());
-        assertEquals(4, new YatzyOne(4,5,5,5,5).fours());
+    public void sumFours(){
+        assertThat( new YatzyOne( 4, 4, 4, 5, 5 ).fours() ).isEqualTo( 12 );
+        assertThat( new YatzyOne( 4, 4, 5, 5, 5 ).fours() ).isEqualTo(  8 );
+        assertThat( new YatzyOne( 4, 5, 5, 5, 5 ).fours() ).isEqualTo(  4 );
     }
 
     @Test

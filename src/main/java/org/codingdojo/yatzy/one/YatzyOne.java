@@ -44,23 +44,15 @@ public class YatzyOne {
         return filteredSum( 3 );
     }
 
+    public int fours(){
+        return filteredSum( 4 );
+    }
+
     private int filteredSum( int filter ){
         return dice.stream()
             .mapToInt( Integer::valueOf )
             .filter( integer -> integer == filter )
             .sum();
-    }
-
-    public int fours()
-    {
-        int sum;    
-        sum = 0;
-        for (int at = 0; at != 5; at++) {
-            if (diceArray[at] == 4) {
-                sum += 4;
-            }
-        }
-        return sum;
     }
 
     public int fives()
