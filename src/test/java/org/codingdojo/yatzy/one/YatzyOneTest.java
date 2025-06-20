@@ -62,10 +62,10 @@ public class YatzyOneTest {
     }
 
     @Test
-    public void one_pair() {
-        assertEquals(6, new YatzyOne().score_pair(3,4,3,5,6));
-        assertEquals(10, new YatzyOne().score_pair(5,3,3,3,5));
-        assertEquals(12, new YatzyOne().score_pair(5,3,6,6,5));
+    public void sumOfHighestPair(){
+        assertThat( new YatzyOne( 3, 4, 3, 5, 6 ).onePair() ).isEqualTo(  6 );
+        assertThat( new YatzyOne( 5, 3, 3, 3, 5 ).onePair() ).isEqualTo( 10 );
+        assertThat( new YatzyOne( 5, 3, 6, 6, 5 ).onePair() ).isEqualTo( 12 );
     }
 
     @Test

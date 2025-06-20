@@ -56,26 +56,24 @@ public class YatzyOne {
         return filteredSum( 6 );
     }
 
+    public int onePair(){
+        final int NUM_OF_SIDES = 6;
+        int[] counts = new int[ NUM_OF_SIDES ];
+
+        for ( int die : diceArray )
+            counts[ die - 1 ]++;
+
+        for (int at = 0; at < NUM_OF_SIDES; at++)
+            if ( counts[ NUM_OF_SIDES - at - 1 ] >= 2 )
+                return ( NUM_OF_SIDES - at ) * 2;
+        return 0;
+    }
+
     private int filteredSum( int filter ){
         return dice.stream()
             .mapToInt( Integer::valueOf )
             .filter( integer -> integer == filter )
             .sum();
-    }
-
-    public int score_pair(int d1, int d2, int d3, int d4, int d5)
-    {
-        int[] counts = new int[6];
-        counts[d1-1]++;
-        counts[d2-1]++;
-        counts[d3-1]++;
-        counts[d4-1]++;
-        counts[d5-1]++;
-        int at;
-        for (at = 0; at != 6; at++)
-            if (counts[6-at-1] >= 2)
-                return (6-at)*2;
-        return 0;
     }
 
     public static int two_pair(int d1, int d2, int d3, int d4, int d5)
