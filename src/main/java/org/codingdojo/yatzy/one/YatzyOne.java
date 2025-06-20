@@ -48,21 +48,15 @@ public class YatzyOne {
         return filteredSum( 4 );
     }
 
+    public int fives(){
+        return filteredSum( 5 );
+    }
+
     private int filteredSum( int filter ){
         return dice.stream()
             .mapToInt( Integer::valueOf )
             .filter( integer -> integer == filter )
             .sum();
-    }
-
-    public int fives()
-    {
-        int s = 0;
-        int i;
-        for (i = 0; i < diceArray.length; i++) 
-            if (diceArray[i] == 5)
-                s = s + 5;
-        return s;
     }
 
     public int sixes()

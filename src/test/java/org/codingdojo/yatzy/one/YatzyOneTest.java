@@ -48,10 +48,10 @@ public class YatzyOneTest {
     }
 
     @Test
-    public void fives() {
-        assertEquals(10, new YatzyOne(4,4,4,5,5).fives());
-        assertEquals(15, new YatzyOne(4,4,5,5,5).fives());
-        assertEquals(20, new YatzyOne(4,5,5,5,5).fives());
+    public void sumFives(){
+        assertThat( new YatzyOne(4, 4, 4, 5, 5 ).fives() ).isEqualTo( 10 );
+        assertThat( new YatzyOne(4, 4, 5, 5, 5 ).fives() ).isEqualTo( 15 );
+        assertThat( new YatzyOne(4, 5, 5, 5, 5 ).fives() ).isEqualTo( 20 );
     }
 
     @Test
