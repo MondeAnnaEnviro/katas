@@ -89,10 +89,10 @@ public class YatzyOneTest {
     }
 
     @Test
-    public void smallStraight() {
-        assertEquals(15, YatzyOne.smallStraight(1,2,3,4,5));
-        assertEquals(15, YatzyOne.smallStraight(2,3,4,5,1));
-        assertEquals(0, YatzyOne.smallStraight(1,2,2,4,5));
+    public void smallStraight(){
+        assertThat( new YatzyOne( 1,2,3,4,5 ).smallStraight() ).isEqualTo( 15 );
+        assertThat( new YatzyOne( 2,3,4,5,1 ).smallStraight() ).isEqualTo( 15 );
+        assertThat( new YatzyOne( 1,2,2,4,5 ).smallStraight() ).isEqualTo(  0 );
     }
 
     @Test
