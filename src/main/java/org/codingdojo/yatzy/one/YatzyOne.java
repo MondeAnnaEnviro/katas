@@ -5,6 +5,9 @@ import java.util.List;
 
 public class YatzyOne {
 
+    private final int FIFTY = 50;
+    private final int ZERO = 0;
+
     private List<Integer> dice;
     protected Integer[] diceArray;
 
@@ -21,15 +24,12 @@ public class YatzyOne {
             .sum();
     }
 
-    public static int yatzy(int... dice)
-    {
-        int[] counts = new int[6];
-        for (int die : dice)
-            counts[die-1]++;
-        for (int i = 0; i != 6; i++)
-            if (counts[i] == 5)
-                return 50;
-        return 0;
+    public int yatzy(){
+        int num = dice.get( 0 );
+        int size = dice.size();
+        boolean hasSameNum = chance() / num == size;
+
+        return ( hasSameNum ? FIFTY : ZERO );
     }
 
     public static int ones(int d1, int d2, int d3, int d4, int d5) {

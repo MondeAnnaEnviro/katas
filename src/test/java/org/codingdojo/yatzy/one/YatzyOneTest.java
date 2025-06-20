@@ -14,12 +14,10 @@ public class YatzyOneTest {
         assertThat( new YatzyOne( 3, 3, 4, 5, 1 ).chance() ).isEqualTo( 16 );
     }
 
-    @Test public void yatzy_scores_50() {
-        int expected = 50;
-        int actual = YatzyOne.yatzy(4,4,4,4,4);
-        assertEquals(expected, actual);
-        assertEquals(50, YatzyOne.yatzy(6,6,6,6,6));
-        assertEquals(0, YatzyOne.yatzy(6,6,6,6,3));
+    @Test
+    public void yatzyScoresEqualFacesFifty(){
+        assertThat( new YatzyOne( 4, 4, 4, 4, 4 ).yatzy() ).isEqualTo( 50 );
+        assertThat( new YatzyOne( 6, 6, 6, 6, 3 ).yatzy() ).isEqualTo(  0 );
     }
 
     @Test public void test_1s() {
