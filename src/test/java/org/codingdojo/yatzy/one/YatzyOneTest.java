@@ -35,9 +35,9 @@ public class YatzyOneTest {
     }
 
     @Test
-    public void test_threes() {
-        assertEquals(6, YatzyOne.threes(1,2,3,2,3));
-        assertEquals(12, YatzyOne.threes(2,3,3,3,3));
+    public void sumThrees(){
+        assertThat( new YatzyOne( 1, 2, 3, 2, 3 ).threes() ).isEqualTo(  6 );
+        assertThat( new YatzyOne( 2, 3, 3, 3, 3 ).threes() ).isEqualTo( 12 );
     }
 
     @Test
