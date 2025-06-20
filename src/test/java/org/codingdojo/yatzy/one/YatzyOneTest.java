@@ -20,11 +20,12 @@ public class YatzyOneTest {
         assertThat( new YatzyOne( 6, 6, 6, 6, 3 ).yatzy() ).isEqualTo(  0 );
     }
 
-    @Test public void test_1s() {
-        assertTrue(YatzyOne.ones(1,2,3,4,5) == 1);
-        assertEquals(2, YatzyOne.ones(1,2,1,4,5));
-        assertEquals(0, YatzyOne.ones(6,2,2,4,5));
-        assertEquals(4, YatzyOne.ones(1,2,1,1,1));
+    @Test
+    public void sumOnes(){
+        assertThat( new YatzyOne( 1, 2, 3, 4, 5 ).ones() ).isEqualTo( 1 );
+        assertThat( new YatzyOne( 1, 2, 1, 4, 5 ).ones() ).isEqualTo( 2 );;
+        assertThat( new YatzyOne( 6, 2, 2, 4, 5 ).ones() ).isEqualTo( 0 );;
+        assertThat( new YatzyOne( 1, 2, 1, 1, 1 ).ones() ).isEqualTo( 4 );;
     }
 
     @Test

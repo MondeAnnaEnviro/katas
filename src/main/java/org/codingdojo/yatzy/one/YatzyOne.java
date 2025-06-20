@@ -32,16 +32,11 @@ public class YatzyOne {
         return ( hasSameNum ? FIFTY : ZERO );
     }
 
-    public static int ones(int d1, int d2, int d3, int d4, int d5) {
-        int sum = 0;
-        if (d1 == 1) sum++;
-        if (d2 == 1) sum++;
-        if (d3 == 1) sum++;
-        if (d4 == 1) sum++;
-        if (d5 == 1) 
-            sum++;
-
-        return sum;
+    public int ones(){
+        return dice.stream()
+            .mapToInt( Integer::valueOf )
+            .filter( integer -> integer == 1 )
+            .sum();
     }
 
     public static int twos(int d1, int d2, int d3, int d4, int d5) {
