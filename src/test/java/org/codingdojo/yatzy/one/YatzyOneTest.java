@@ -90,16 +90,16 @@ public class YatzyOneTest {
 
     @Test
     public void smallStraight(){
-        assertThat( new YatzyOne( 1,2,3,4,5 ).smallStraight() ).isEqualTo( 15 );
-        assertThat( new YatzyOne( 2,3,4,5,1 ).smallStraight() ).isEqualTo( 15 );
-        assertThat( new YatzyOne( 1,2,2,4,5 ).smallStraight() ).isEqualTo(  0 );
+        assertThat( new YatzyOne( 1, 2, 3, 4, 5 ).smallStraight() ).isEqualTo( 15 );
+        assertThat( new YatzyOne( 2, 3, 4, 5, 1 ).smallStraight() ).isEqualTo( 15 );
+        assertThat( new YatzyOne( 1, 2, 2, 4, 5 ).smallStraight() ).isEqualTo(  0 );
     }
 
     @Test
-    public void largeStraight() {
-        assertEquals(20, YatzyOne.largeStraight(6,2,3,4,5));
-        assertEquals(20, YatzyOne.largeStraight(2,3,4,5,6));
-        assertEquals(0, YatzyOne.largeStraight(1,2,2,4,5));
+    public void largeStraight(){
+        assertThat( new YatzyOne( 6, 2, 3, 4, 5 ).largeStraight() ).isEqualTo( 20 );
+        assertThat( new YatzyOne( 2, 3, 4, 5, 6 ).largeStraight() ).isEqualTo( 20 );
+        assertThat( new YatzyOne( 1, 2, 2, 4, 5 ).largeStraight() ).isEqualTo(  0 );
     }
 
     @Test

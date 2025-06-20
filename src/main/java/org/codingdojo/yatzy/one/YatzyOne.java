@@ -5,6 +5,7 @@ import java.util.List;
 
 public class YatzyOne {
 
+    private final int LARGE_STRAIGHT = 20;
     private final int SMALL_STRAIGHT = 15;
     private final int NUM_OF_SIDES = 6;
     private final int FIFTY = 50;
@@ -107,6 +108,12 @@ public class YatzyOne {
             : ZERO;
     }
 
+    public int largeStraight(){
+        return chance() == LARGE_STRAIGHT
+            ? LARGE_STRAIGHT
+            : ZERO;
+    }
+
     private int filteredSum( int filter ){
         return dice.stream()
             .mapToInt( Integer::valueOf )
@@ -121,24 +128,6 @@ public class YatzyOne {
             counts[ die - 1 ]++;
 
         return counts;
-    }
-
-    public static int largeStraight(int d1, int d2, int d3, int d4, int d5)
-    {
-        int[] tallies;
-        tallies = new int[6];
-        tallies[d1-1] += 1;
-        tallies[d2-1] += 1;
-        tallies[d3-1] += 1;
-        tallies[d4-1] += 1;
-        tallies[d5-1] += 1;
-        if (tallies[1] == 1 &&
-            tallies[2] == 1 &&
-            tallies[3] == 1 &&
-            tallies[4] == 1
-            && tallies[5] == 1)
-            return 20;
-        return 0;
     }
 
     public static int fullHouse(int d1, int d2, int d3, int d4, int d5)
