@@ -5,6 +5,7 @@ import java.util.List;
 
 public class YatzyOne {
 
+    private final int NUM_OF_SIDES = 6;
     private final int FIFTY = 50;
     private final int ZERO = 0;
 
@@ -57,15 +58,36 @@ public class YatzyOne {
     }
 
     public int onePair(){
-        final int NUM_OF_SIDES = 6;
-        int[] counts = new int[ NUM_OF_SIDES ];
+        int[] counts = getCounts();
 
-        for ( int die : diceArray )
-            counts[ die - 1 ]++;
-
-        for (int at = 0; at < NUM_OF_SIDES; at++)
+        for ( int at = 0; at < NUM_OF_SIDES; at++ )
             if ( counts[ NUM_OF_SIDES - at - 1 ] >= 2 )
                 return ( NUM_OF_SIDES - at ) * 2;
+        return 0;
+    }
+
+    public int twoPairs(){
+        int[] counts = getCounts();
+        int score = 0;
+        int n = 0;
+
+        for ( int at = 0; at < NUM_OF_SIDES; at++ )
+            if ( counts[ NUM_OF_SIDES - at - 1 ] >= 2 ){
+                n++;
+                score += NUM_OF_SIDES - at;
+            }
+
+        if ( n == 2 )
+            return score * 2;
+        return 0;
+    }
+
+    public int threeOfKind(){
+        int[] counts = getCounts();
+
+        for ( int at = 0; at < NUM_OF_SIDES; at++ )
+            if ( counts[ at ] >= 3 )
+                return ( at + 1 ) * 3;
         return 0;
     }
 
@@ -76,25 +98,13 @@ public class YatzyOne {
             .sum();
     }
 
-    public static int two_pair(int d1, int d2, int d3, int d4, int d5)
-    {
-        int[] counts = new int[6];
-        counts[d1-1]++;
-        counts[d2-1]++;
-        counts[d3-1]++;
-        counts[d4-1]++;
-        counts[d5-1]++;
-        int n = 0;
-        int score = 0;
-        for (int i = 0; i < 6; i += 1)
-            if (counts[6-i-1] >= 2) {
-                n++;
-                score += (6-i);
-            }        
-        if (n == 2)
-            return score * 2;
-        else
-            return 0;
+    private int[] getCounts(){
+        int[] counts = new int[ NUM_OF_SIDES ];
+
+        for ( int die : diceArray )
+            counts[ die - 1 ]++;
+
+        return counts;
     }
 
     public static int four_of_a_kind(int _1, int _2, int d3, int d4, int d5)
@@ -109,21 +119,6 @@ public class YatzyOne {
         for (int i = 0; i < 6; i++)
             if (tallies[i] >= 4)
                 return (i+1) * 4;
-        return 0;
-    }
-
-    public static int three_of_a_kind(int d1, int d2, int d3, int d4, int d5)
-    {
-        int[] t;
-        t = new int[6];
-        t[d1-1]++;
-        t[d2-1]++;
-        t[d3-1]++;
-        t[d4-1]++;
-        t[d5-1]++;
-        for (int i = 0; i < 6; i++)
-            if (t[i] >= 3)
-                return (i+1) * 3;
         return 0;
     }
 

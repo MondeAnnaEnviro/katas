@@ -69,24 +69,23 @@ public class YatzyOneTest {
     }
 
     @Test
-    public void two_Pair() {
-        assertEquals(16, YatzyOne.two_pair(3,3,5,4,5));
-        assertEquals(16, YatzyOne.two_pair(3,3,5,5,5));
+    public void sumOfTwoHighestPairs(){
+        assertThat( new YatzyOne( 3, 3, 5, 4, 5 ).twoPairs() ).isEqualTo( 16 );
+        assertThat( new YatzyOne( 3, 3, 5, 5, 5 ).twoPairs() ).isEqualTo( 16 );
     }
 
     @Test
-    public void three_of_a_kind() 
-    {
-        assertEquals(9, YatzyOne.three_of_a_kind(3,3,3,4,5));
-        assertEquals(15, YatzyOne.three_of_a_kind(5,3,5,4,5));
-        assertEquals(9, YatzyOne.three_of_a_kind(3,3,3,3,5));
+    public void sumThreeOfKind(){
+        assertThat( new YatzyOne( 5, 3, 5, 4, 5 ).threeOfKind() ).isEqualTo( 15 );
+        assertThat( new YatzyOne( 3, 3, 3, 4, 5 ).threeOfKind() ).isEqualTo(  9 );
+        assertThat( new YatzyOne( 3, 3, 3, 3, 5 ).threeOfKind() ).isEqualTo(  9 );
+        assertThat( new YatzyOne( 3, 3, 3, 3, 3 ).threeOfKind() ).isEqualTo(  9 );
     }
 
     @Test
     public void four_of_a_knd() {
         assertEquals(12, YatzyOne.four_of_a_kind(3,3,3,3,5));
         assertEquals(20, YatzyOne.four_of_a_kind(5,5,5,4,5));
-        assertEquals(9, YatzyOne.three_of_a_kind(3,3,3,3,3));
     }
 
     @Test
