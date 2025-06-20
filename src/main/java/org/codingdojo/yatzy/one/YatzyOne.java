@@ -12,13 +12,11 @@ public class YatzyOne {
     private final int ZERO = 0;
 
     private List<Integer> dice;
-    protected Integer[] diceArray;
 
     public YatzyOne(){}
 
     public YatzyOne( Integer... dice ){
         this.dice = Arrays.asList( dice );
-        this.diceArray = dice;
     }
 
     public int chance(){
@@ -150,7 +148,7 @@ public class YatzyOne {
     private int[] getCounts(){
         int[] counts = new int[ NUM_OF_SIDES ];
 
-        for ( int die : diceArray )
+        for ( int die : dice )
             counts[ die - 1 ]++;
 
         return counts;
