@@ -33,20 +33,18 @@ public class YatzyOne {
     }
 
     public int ones(){
-        return dice.stream()
-            .mapToInt( Integer::valueOf )
-            .filter( integer -> integer == 1 )
-            .sum();
+        return sumFiltered( 1 );
     }
 
-    public static int twos(int d1, int d2, int d3, int d4, int d5) {
-        int sum = 0;
-        if (d1 == 2) sum += 2;
-        if (d2 == 2) sum += 2;
-        if (d3 == 2) sum += 2;
-        if (d4 == 2) sum += 2;
-        if (d5 == 2) sum += 2;
-        return sum;
+    public int twos(){
+        return sumFiltered( 2 );
+    }
+
+    private int sumFiltered( int filter ){
+        return dice.stream()
+            .mapToInt( Integer::valueOf )
+            .filter( integer -> integer == filter )
+            .sum();
     }
 
     public static int threes(int d1, int d2, int d3, int d4, int d5) {

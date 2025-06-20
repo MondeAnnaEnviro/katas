@@ -23,15 +23,15 @@ public class YatzyOneTest {
     @Test
     public void sumOnes(){
         assertThat( new YatzyOne( 1, 2, 3, 4, 5 ).ones() ).isEqualTo( 1 );
-        assertThat( new YatzyOne( 1, 2, 1, 4, 5 ).ones() ).isEqualTo( 2 );;
-        assertThat( new YatzyOne( 6, 2, 2, 4, 5 ).ones() ).isEqualTo( 0 );;
-        assertThat( new YatzyOne( 1, 2, 1, 1, 1 ).ones() ).isEqualTo( 4 );;
+        assertThat( new YatzyOne( 1, 2, 1, 4, 5 ).ones() ).isEqualTo( 2 );
+        assertThat( new YatzyOne( 6, 2, 2, 4, 5 ).ones() ).isEqualTo( 0 );
+        assertThat( new YatzyOne( 1, 2, 1, 1, 1 ).ones() ).isEqualTo( 4 );
     }
 
     @Test
-    public void test_2s() {
-        assertEquals(4, YatzyOne.twos(1,2,3,2,6));
-        assertEquals(10, YatzyOne.twos(2,2,2,2,2));
+    public void sumTwos(){
+        assertThat( new YatzyOne( 1, 2, 3, 2, 6 ).twos() ).isEqualTo(  4 );
+        assertThat( new YatzyOne( 2, 2, 2, 2, 2 ).twos() ).isEqualTo( 10 );
     }
 
     @Test
