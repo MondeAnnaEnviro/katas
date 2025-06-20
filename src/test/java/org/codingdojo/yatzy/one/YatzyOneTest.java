@@ -1,10 +1,7 @@
 package org.codingdojo.yatzy.one;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
-
 
 public class YatzyOneTest {
 
@@ -103,8 +100,8 @@ public class YatzyOneTest {
     }
 
     @Test
-    public void fullHouse() {
-        assertEquals(18, YatzyOne.fullHouse(6,2,2,2,6));
-        assertEquals(0, YatzyOne.fullHouse(2,3,4,5,6));
+    public void fullHouse(){
+        assertThat( new YatzyOne( 6, 2, 2, 2, 6 ).fullHouse() ).isEqualTo( 18 );
+        assertThat( new YatzyOne( 2, 3, 4, 5, 6 ).fullHouse() ).isEqualTo(  0 );
     }
 }
