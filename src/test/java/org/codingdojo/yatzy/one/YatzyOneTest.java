@@ -84,8 +84,8 @@ public class YatzyOneTest {
 
     @Test
     public void four_of_a_knd() {
-        assertEquals(12, YatzyOne.four_of_a_kind(3,3,3,3,5));
-        assertEquals(20, YatzyOne.four_of_a_kind(5,5,5,4,5));
+        assertThat( new YatzyOne( 3, 3, 3, 3, 5 ).fourOfKind() ).isEqualTo( 12 );
+        assertThat( new YatzyOne( 5, 5, 5, 4, 5 ).fourOfKind() ).isEqualTo( 20 );
     }
 
     @Test
