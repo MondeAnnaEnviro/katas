@@ -1,6 +1,7 @@
-package org.codingdojo.yatzy1;
+package org.codingdojo.yatzy.one;
 
-public class Yatzy1 {
+
+public class YatzyOne {
 
     public static int chance(int d1, int d2, int d3, int d4, int d5)
     {
@@ -58,8 +59,8 @@ public class Yatzy1 {
     }
 
     protected int[] dice;
-    public Yatzy1() {}
-    public Yatzy1(int d1, int d2, int d3, int d4, int _5)
+    public YatzyOne() {}
+    public YatzyOne(int d1, int d2, int d3, int d4, int _5)
     {
         this();
         dice = new int[5];
