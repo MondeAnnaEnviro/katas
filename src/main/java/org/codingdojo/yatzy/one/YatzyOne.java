@@ -52,20 +52,15 @@ public class YatzyOne {
         return filteredSum( 5 );
     }
 
+    public int sixes(){
+        return filteredSum( 6 );
+    }
+
     private int filteredSum( int filter ){
         return dice.stream()
             .mapToInt( Integer::valueOf )
             .filter( integer -> integer == filter )
             .sum();
-    }
-
-    public int sixes()
-    {
-        int sum = 0;
-        for (int at = 0; at < diceArray.length; at++) 
-            if (diceArray[at] == 6)
-                sum = sum + 6;
-        return sum;
     }
 
     public int score_pair(int d1, int d2, int d3, int d4, int d5)

@@ -49,16 +49,16 @@ public class YatzyOneTest {
 
     @Test
     public void sumFives(){
-        assertThat( new YatzyOne(4, 4, 4, 5, 5 ).fives() ).isEqualTo( 10 );
-        assertThat( new YatzyOne(4, 4, 5, 5, 5 ).fives() ).isEqualTo( 15 );
-        assertThat( new YatzyOne(4, 5, 5, 5, 5 ).fives() ).isEqualTo( 20 );
+        assertThat( new YatzyOne( 4, 4, 4, 5, 5 ).fives() ).isEqualTo( 10 );
+        assertThat( new YatzyOne( 4, 4, 5, 5, 5 ).fives() ).isEqualTo( 15 );
+        assertThat( new YatzyOne( 4, 5, 5, 5, 5 ).fives() ).isEqualTo( 20 );
     }
 
     @Test
-    public void sixes_test() {
-        assertEquals(0, new YatzyOne(4,4,4,5,5).sixes());
-        assertEquals(6, new YatzyOne(4,4,6,5,5).sixes());
-        assertEquals(18, new YatzyOne(6,5,6,6,5).sixes());
+    public void sumSixes(){
+        assertThat( new YatzyOne( 4, 4, 4, 5, 5 ).sixes() ).isEqualTo( 0 );
+        assertThat( new YatzyOne( 4, 4, 6, 5, 5 ).sixes() ).isEqualTo( 6 );
+        assertThat( new YatzyOne( 6, 5, 6, 6, 5 ).sixes() ).isEqualTo( 18 );
     }
 
     @Test
