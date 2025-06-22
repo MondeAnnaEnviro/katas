@@ -99,9 +99,9 @@ public class YatzyTwoTest {
 
     @Test
     public void smallStraight(){
-        assertEquals(15, yatzyTwo.score(List.of(1,2,3,4,5), "SMALL_STRAIGHT"));
-        assertEquals(15, yatzyTwo.score(List.of(2,3,4,5,1), "SMALL_STRAIGHT"));
-        assertEquals(0, yatzyTwo.score(List.of(1,2,2,4,5), "SMALL_STRAIGHT"));
+        assertThat( yatzyTwo.smallStraight( List.of( 1, 2, 3, 4, 5 ))).isEqualTo( 15 );
+        assertThat( yatzyTwo.smallStraight( List.of( 2, 3, 4, 5, 1 ))).isEqualTo( 15 );
+        assertThat( yatzyTwo.smallStraight( List.of( 1, 2, 2, 4, 5 ))).isEqualTo(  0 );
     }
 
     @Test
