@@ -44,10 +44,7 @@ public class YatzyTwo implements YatzyCalculator {
     }
 
     public int pair( List<Integer> dice ){
-        for ( int die : DICE_VALUES )
-            if ( diceFrequencies( dice ).get( die ) >= 2 )
-                return die * 2;
-        return 0;
+        return ofKind( dice, 2 );
     }
 
     public int twoPairs( List<Integer> dice ){
@@ -67,10 +64,11 @@ public class YatzyTwo implements YatzyCalculator {
     }
 
     public int threeOfKind( List<Integer> dice ){
-        for ( int die : DICE_VALUES )
-            if ( diceFrequencies( dice ).get( die ) >= 3 )
-                return die * 3;
-        return 0;
+        return ofKind( dice, 3 );
+    }
+
+    public int fourOfKind( List<Integer> dice ){
+        return ofKind( dice, 4 );
     }
 
     public int yatzy( List<Integer> dice ){
@@ -100,20 +98,6 @@ public class YatzyTwo implements YatzyCalculator {
         // calculate the score
         int result;
         switch (category) {
-
-            case FOUR_OF_A_KIND:
-
-                // score if four dice are the same
-                int fourKindResult = 0;
-                for (int i : DICE_VALUES) {
-                    if (diceFrequencies.get(i) >= 4) {
-                        fourKindResult = i * 4;
-                        break;
-                    }
-                }
-                result = fourKindResult;
-                break;
-
             case SMALL_STRAIGHT:
 
                 // score if dice contains 1,2,3,4,5
@@ -184,5 +168,12 @@ public class YatzyTwo implements YatzyCalculator {
                 .mapToInt( Integer::valueOf )
                 .filter( integer -> integer == filter )
                 .sum();
+    }
+
+    private int ofKind( List<Integer> dice, Integer frequency ){
+        for ( int die : DICE_VALUES )
+            if ( diceFrequencies( dice ).get( die ) >= frequency )
+                return die * frequency;
+        return 0;
     }
 }
