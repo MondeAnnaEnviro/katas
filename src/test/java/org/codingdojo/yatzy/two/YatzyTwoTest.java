@@ -50,17 +50,17 @@ public class YatzyTwoTest {
     }
 
     @Test
-    public void fours(){
+    public void sumOfFours(){
         assertThat( yatzyTwo.fours( List.of( 4, 4, 4, 5, 5 ))).isEqualTo( 12 );
         assertThat( yatzyTwo.fours( List.of( 4, 4, 5, 5, 5 ))).isEqualTo(  8 );
         assertThat( yatzyTwo.fours( List.of( 4, 5, 5, 5, 5 ))).isEqualTo(  4 );
     }
 
     @Test
-    public void fives(){
-        assertEquals(10, yatzyTwo.score(List.of(4,4,4,5,5), "FIVES"));
-        assertEquals(15, yatzyTwo.score(List.of(4,4,5,5,5), "FIVES"));
-        assertEquals(20, yatzyTwo.score(List.of(4,5,5,5,5), "FIVES"));
+    public void sumOfFives(){
+        assertThat( yatzyTwo.fives( List.of( 4, 4, 4, 5, 5 ))).isEqualTo( 10 );
+        assertThat( yatzyTwo.fives( List.of( 4, 4, 5, 5, 5 ))).isEqualTo( 15 );
+        assertThat( yatzyTwo.fives( List.of( 4, 5, 5, 5, 5 ))).isEqualTo( 20 );
     }
 
     @Test
