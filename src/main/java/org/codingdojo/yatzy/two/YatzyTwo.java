@@ -20,10 +20,11 @@ public class YatzyTwo implements YatzyCalculator {
     }
 
     public int ones( List<Integer> dice ){
-        return dice.stream()
-                .mapToInt( Integer::valueOf )
-                .filter( integer -> integer == 1 )
-                .sum();
+        return filteredSum( dice, 1 );
+    }
+
+    public int twos( List<Integer> dice ){
+        return filteredSum( dice, 2 );
     }
 
     public int yatzy( List<Integer> dice ){
@@ -53,11 +54,6 @@ public class YatzyTwo implements YatzyCalculator {
         // calculate the score
         int result;
         switch (category) {
-            case TWOS:
-                // sum all the twos
-                result = diceFrequencies.get(2) * 2;
-                break;
-
             case THREES:
                 // sum all the threes
                 result = diceFrequencies.get(3) * 3;
@@ -192,5 +188,10 @@ public class YatzyTwo implements YatzyCalculator {
         return result;
     }
 
+    private int filteredSum( List<Integer> dice, Integer filter ){
+        return dice.stream()
+                .mapToInt( Integer::valueOf )
+                .filter( integer -> integer == filter )
+                .sum();
+    }
 }
-

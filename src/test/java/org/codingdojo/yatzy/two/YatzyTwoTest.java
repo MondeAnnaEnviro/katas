@@ -38,9 +38,9 @@ public class YatzyTwoTest {
     }
 
     @Test
-    public void twos(){
-        assertEquals(4, yatzyTwo.score(List.of(1,2,3,2,6), "TWOS"));
-        assertEquals(10, yatzyTwo.score(List.of(2,2,2,2,2), "TWOS"));
+    public void sumOfTwos(){
+        assertThat( yatzyTwo.twos( List.of( 1, 2, 3, 2, 6 ))).isEqualTo(  4 );
+        assertThat( yatzyTwo.twos( List.of( 2, 2, 2, 2, 2 ))).isEqualTo( 10 );
     }
 
     @Test
