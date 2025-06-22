@@ -1,8 +1,5 @@
 package org.codingdojo.yatzy.two;
 
-import org.codingdojo.YatzyCalculator;
-import org.codingdojo.YatzyCategory;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -10,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class YatzyTwo implements YatzyCalculator {
+public class YatzyTwo {
 
     static final List<Integer> DICE_VALUES = Arrays.asList(6, 5, 4, 3, 2, 1);
 
@@ -50,18 +47,17 @@ public class YatzyTwo implements YatzyCalculator {
 
     public int twoPairs( List<Integer> dice ){
         int twoPairResult = 0;
-        long pairCount = 0L;
+        int pairCount = 0;
 
         for ( Map.Entry<Integer, Integer> entry : diceFrequencies( dice ).entrySet() )
             if ( entry.getValue() >= 2 )
                 pairCount++;
 
-        if ( pairCount == 2 )
-            for ( int die : DICE_VALUES )
-                if ( diceFrequencies( dice ).get( die ) >= 2 )
-                    twoPairResult +=  die * 2;
+        for ( int die : DICE_VALUES )
+            if ( diceFrequencies( dice ).get( die ) >= 2 )
+                twoPairResult +=  die * 2;
 
-        return twoPairResult;
+        return pairCount == 2 ? twoPairResult : 0;
     }
 
     public int threeOfKind( List<Integer> dice ){
@@ -86,7 +82,6 @@ public class YatzyTwo implements YatzyCalculator {
 
     public int fullHouse( List<Integer> dice ){
         Map<Integer, Integer> frequencies = diceFrequencies( dice );
-        int fullHouseResult = 0;
 
         if ( !( frequencies.containsValue(2) && frequencies.containsValue(3) ))
             return 0;
@@ -101,34 +96,6 @@ public class YatzyTwo implements YatzyCalculator {
         return chance( dice ) / dice.size() == dice.get( 0 )
             ? 50
             : 0;
-    }
-
-    @Override
-    public List<String> validCategories() {
-        return Arrays.stream(YatzyCategory.values()).map(Enum::toString).collect(Collectors.toList());
-    }
-
-    @Override
-    public int score(List<Integer> dice, String categoryName) {
-        YatzyCategory category = YatzyCategory.valueOf(categoryName);
-
-        // calculate dice frequencies
-        HashMap<Integer, Integer> diceFrequencies = new HashMap<>();
-        for (int i : DICE_VALUES) {
-            diceFrequencies.put(i, 0);
-        }
-        for (int die : dice) {
-            diceFrequencies.put(die, diceFrequencies.get(die) + 1);
-        }
-
-        // calculate the score
-        int result;
-        switch (category) {
-
-            default:
-                result = 0;
-        }
-        return result;
     }
 
     private Map<Integer, Integer> diceFrequencies( List<Integer> dice ){
