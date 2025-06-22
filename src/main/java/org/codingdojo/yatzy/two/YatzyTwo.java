@@ -84,6 +84,19 @@ public class YatzyTwo implements YatzyCalculator {
                 : 0;
     }
 
+    public int fullHouse( List<Integer> dice ){
+        Map<Integer, Integer> frequencies = diceFrequencies( dice );
+        int fullHouseResult = 0;
+
+        if ( !( frequencies.containsValue(2) && frequencies.containsValue(3) ))
+            return 0;
+
+        return frequencies.keySet().stream()
+                .filter( n -> frequencies.get( n ) > 0 )
+                .mapToInt( n -> n * frequencies.get( n ))
+                .sum();
+    }
+
     public int yatzy( List<Integer> dice ){
         return chance( dice ) / dice.size() == dice.get( 0 )
             ? 50
@@ -111,17 +124,6 @@ public class YatzyTwo implements YatzyCalculator {
         // calculate the score
         int result;
         switch (category) {
-            case FULL_HOUSE:
-
-                // score if there is a pair as well as three of a kind
-                int fullHouseResult = 0;
-                if (diceFrequencies.containsValue(2) && diceFrequencies.containsValue(3)) {
-                    for (Integer die : dice) {
-                        fullHouseResult += die;
-                    }
-                }
-                result = fullHouseResult;
-                break;
 
             default:
                 result = 0;

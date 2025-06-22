@@ -1,7 +1,6 @@
 package org.codingdojo.yatzy.two;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -113,7 +112,7 @@ public class YatzyTwoTest {
 
     @Test
     public void fullHouse(){
-        assertEquals(18, yatzyTwo.score(List.of(6,2,2,2,6), "FULL_HOUSE"));
-        assertEquals(0, yatzyTwo.score(List.of(2,3,4,5,6), "FULL_HOUSE"));
+        assertThat( yatzyTwo.fullHouse( List.of( 6, 2, 2, 2, 6 ))).isEqualTo( 18 );
+        assertThat( yatzyTwo.fullHouse( List.of( 2, 3, 4, 5, 6 ))).isEqualTo(  0 );
     }
 }
