@@ -50,6 +50,21 @@ public class YatzyTwo implements YatzyCalculator {
         return 0;
     }
 
+    public int twoPairs( List<Integer> dice ){
+        int twoPairResult = 0;
+        long pairCount = 0L;
+
+        for ( Map.Entry<Integer, Integer> entry : diceFrequencies( dice ).entrySet() )
+            if ( entry.getValue() >= 2 )
+                pairCount++;
+
+        if ( pairCount == 2 )
+            for ( int die : DICE_VALUES )
+                if ( diceFrequencies( dice ).get( die ) >= 2 )
+                    twoPairResult +=  die * 2;
+
+        return twoPairResult;
+    }
     private Map<Integer, Integer> diceFrequencies( List<Integer> dice ){
         return Map.of(
             6, sixes( dice )  / 6,
@@ -148,26 +163,6 @@ public class YatzyTwo implements YatzyCalculator {
                     }
                 }
                 result = largeStraightResult;
-                break;
-
-            case TWO_PAIRS:
-
-                // score if there are two pairs
-                int twoPairResult = 0;
-                long pairCount = 0L;
-                for (Integer frequency : diceFrequencies.values()) {
-                    if (frequency >= 2) {
-                        pairCount++;
-                    }
-                }
-                if (pairCount == 2) {
-                    for (int i : DICE_VALUES) {
-                        if (diceFrequencies.get(i) >= 2) {
-                            twoPairResult += i * 2;
-                        }
-                    }
-                }
-                result = twoPairResult;
                 break;
 
             case FULL_HOUSE:

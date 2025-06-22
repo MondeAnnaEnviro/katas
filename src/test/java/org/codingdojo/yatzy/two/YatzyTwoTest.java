@@ -71,16 +71,16 @@ public class YatzyTwoTest {
     }
 
     @Test
-    public void sumPair(){
+    public void sumHighestPair(){
         assertThat( yatzyTwo.pair( List.of( 3, 4, 3, 5, 6 ))).isEqualTo(  6 );
         assertThat( yatzyTwo.pair( List.of( 5, 3, 3, 3, 5 ))).isEqualTo( 10 );
         assertThat( yatzyTwo.pair( List.of( 5, 3, 6, 6, 5 ))).isEqualTo( 12 );
     }
 
     @Test
-    public void two_pair(){
-        assertEquals(16, yatzyTwo.score(List.of(3,3,5,4,5), "TWO_PAIRS"));
-        assertEquals(16, yatzyTwo.score(List.of(3,3,5,5,5), "TWO_PAIRS"));
+    public void sumOfTwoPairs(){
+        assertThat( yatzyTwo.twoPairs( List.of( 3, 3, 5, 4, 5 ))).isEqualTo( 16 );
+        assertThat( yatzyTwo.twoPairs( List.of( 3, 3, 5, 5, 5 ))).isEqualTo( 16 );
     }
 
     @Test
