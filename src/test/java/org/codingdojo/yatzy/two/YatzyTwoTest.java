@@ -84,10 +84,10 @@ public class YatzyTwoTest {
     }
 
     @Test
-    public void three_of_a_kind(){
-        assertEquals(9, yatzyTwo.score(List.of(3,3,3,4,5), "THREE_OF_A_KIND"));
-        assertEquals(15, yatzyTwo.score(List.of(5,3,5,4,5), "THREE_OF_A_KIND"));
-        assertEquals(9, yatzyTwo.score(List.of(3,3,3,3,5), "THREE_OF_A_KIND"));
+    public void sumThreeOfKind(){
+        assertThat( yatzyTwo.threeOfKind( List.of( 3, 3, 3, 4, 5 ))).isEqualTo(  9 );
+        assertThat( yatzyTwo.threeOfKind( List.of( 5, 3, 5, 4, 5 ))).isEqualTo( 15 );
+        assertThat( yatzyTwo.threeOfKind( List.of( 3, 3, 3, 3, 5 ))).isEqualTo(  9 );
     }
 
     @Test

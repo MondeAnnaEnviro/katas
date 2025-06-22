@@ -65,15 +65,12 @@ public class YatzyTwo implements YatzyCalculator {
 
         return twoPairResult;
     }
-    private Map<Integer, Integer> diceFrequencies( List<Integer> dice ){
-        return Map.of(
-            6, sixes( dice )  / 6,
-            5, fives( dice )  / 5,
-            4, fours( dice )  / 4,
-            3, threes( dice ) / 3,
-            2, twos( dice )   / 2,
-            1, ones( dice )
-        );
+
+    public int threeOfKind( List<Integer> dice ){
+        for ( int die : DICE_VALUES )
+            if ( diceFrequencies( dice ).get( die ) >= 3 )
+                return die * 3;
+        return 0;
     }
 
     public int yatzy( List<Integer> dice ){
@@ -103,18 +100,6 @@ public class YatzyTwo implements YatzyCalculator {
         // calculate the score
         int result;
         switch (category) {
-            case THREE_OF_A_KIND:
-
-                // score if three dice are the same
-                int threeKindResult = 0;
-                for (int i : DICE_VALUES) {
-                    if (diceFrequencies.get(i) >= 3) {
-                        threeKindResult = i * 3;
-                        break;
-                    }
-                }
-                result = threeKindResult;
-                break;
 
             case FOUR_OF_A_KIND:
 
@@ -181,6 +166,17 @@ public class YatzyTwo implements YatzyCalculator {
                 result = 0;
         }
         return result;
+    }
+
+    private Map<Integer, Integer> diceFrequencies( List<Integer> dice ){
+        return Map.of(
+            6, sixes( dice )  / 6,
+            5, fives( dice )  / 5,
+            4, fours( dice )  / 4,
+            3, threes( dice ) / 3,
+            2, twos( dice )   / 2,
+            1, ones( dice )
+        );
     }
 
     private int filteredSum( List<Integer> dice, Integer filter ){
