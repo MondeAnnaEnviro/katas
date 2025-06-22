@@ -106,9 +106,9 @@ public class YatzyTwoTest {
 
     @Test
     public void largeStraight(){
-        assertEquals(20, yatzyTwo.score(List.of(6,2,3,4,5), "LARGE_STRAIGHT"));
-        assertEquals(20, yatzyTwo.score(List.of(2,3,4,5,6), "LARGE_STRAIGHT"));
-        assertEquals(0, yatzyTwo.score(List.of(1,2,2,4,5), "LARGE_STRAIGHT"));
+        assertThat( yatzyTwo.largeStraight( List.of( 6, 2, 3, 4, 5 ))).isEqualTo( 20 );
+        assertThat( yatzyTwo.largeStraight( List.of( 2, 3, 4, 5, 6 ))).isEqualTo( 20 );
+        assertThat( yatzyTwo.largeStraight( List.of( 1, 2, 2, 4, 5 ))).isEqualTo(  0 );
     }
 
     @Test

@@ -78,6 +78,12 @@ public class YatzyTwo implements YatzyCalculator {
                 : 0;
     }
 
+    public int largeStraight( List<Integer> dice ){
+        return new HashSet<>( dice ).size() == 5 && !dice.contains( 1 )
+                ? 20
+                : 0;
+    }
+
     public int yatzy( List<Integer> dice ){
         return chance( dice ) / dice.size() == dice.get( 0 )
             ? 50
@@ -105,24 +111,6 @@ public class YatzyTwo implements YatzyCalculator {
         // calculate the score
         int result;
         switch (category) {
-            case LARGE_STRAIGHT:
-
-                // score if dice contains 2,3,4,5,6
-                int largeStraightResult = 0;
-                long straightCount = 0L;
-                for (Integer frequency : diceFrequencies.values()) {
-                    if (frequency == 1) {
-                        straightCount++;
-                    }
-                }
-                if (straightCount == 5 && diceFrequencies.get(1) == 0) {
-                    for (Integer die : dice) {
-                        largeStraightResult += die;
-                    }
-                }
-                result = largeStraightResult;
-                break;
-
             case FULL_HOUSE:
 
                 // score if there is a pair as well as three of a kind
