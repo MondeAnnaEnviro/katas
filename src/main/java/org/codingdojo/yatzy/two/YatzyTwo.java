@@ -27,6 +27,10 @@ public class YatzyTwo implements YatzyCalculator {
         return filteredSum( dice, 2 );
     }
 
+    public int threes( List<Integer> dice ){
+        return filteredSum( dice, 3 );
+    }
+
     public int yatzy( List<Integer> dice ){
         return chance( dice ) / dice.size() == dice.get( 0 )
             ? 50
@@ -54,11 +58,6 @@ public class YatzyTwo implements YatzyCalculator {
         // calculate the score
         int result;
         switch (category) {
-            case THREES:
-                // sum all the threes
-                result = diceFrequencies.get(3) * 3;
-                break;
-
             case FOURS:
                 // sum all the fours
                 result = diceFrequencies.get(4) * 4;

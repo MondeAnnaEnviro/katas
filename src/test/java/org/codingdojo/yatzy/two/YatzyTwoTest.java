@@ -44,9 +44,9 @@ public class YatzyTwoTest {
     }
 
     @Test
-    public void threes(){
-        assertEquals(6, yatzyTwo.score(List.of(1,2,3,2,3), "THREES"));
-        assertEquals(12, yatzyTwo.score(List.of(2,3,3,3,3), "THREES"));
+    public void sumOfThrees(){
+        assertThat( yatzyTwo.threes( List.of( 1, 2, 3, 2, 3 ))).isEqualTo(  6 );
+        assertThat( yatzyTwo.threes( List.of( 2, 3, 3, 3, 3 ))).isEqualTo( 12 );
     }
 
     @Test
