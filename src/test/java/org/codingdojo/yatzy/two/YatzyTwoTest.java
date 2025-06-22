@@ -64,17 +64,17 @@ public class YatzyTwoTest {
     }
 
     @Test
-    public void sixes(){
-        assertEquals(0, yatzyTwo.score(List.of(4,4,4,5,5), "SIXES"));
-        assertEquals(6, yatzyTwo.score(List.of(4,4,6,5,5), "SIXES"));
-        assertEquals(18, yatzyTwo.score(List.of(6,5,6,6,5), "SIXES"));
+    public void sumOfSixes(){
+        assertThat( yatzyTwo.sixes( List.of( 4, 4, 4, 5, 5 ))).isEqualTo(  0 );
+        assertThat( yatzyTwo.sixes( List.of( 4, 4, 6, 5, 5 ))).isEqualTo(  6 );
+        assertThat( yatzyTwo.sixes( List.of( 6, 5, 6, 6, 5 ))).isEqualTo( 18 );
     }
 
     @Test
-    public void pair(){
-        assertEquals(6, yatzyTwo.score(List.of(3,4,3,5,6), "PAIR"));
-        assertEquals(10, yatzyTwo.score(List.of(5,3,3,3,5), "PAIR"));
-        assertEquals(12, yatzyTwo.score(List.of(5,3,6,6,5), "PAIR"));
+    public void sumPair(){
+        assertThat( yatzyTwo.pair( List.of( 3, 4, 3, 5, 6 ))).isEqualTo(  6 );
+        assertThat( yatzyTwo.pair( List.of( 5, 3, 3, 3, 5 ))).isEqualTo( 10 );
+        assertThat( yatzyTwo.pair( List.of( 5, 3, 6, 6, 5 ))).isEqualTo( 12 );
     }
 
     @Test

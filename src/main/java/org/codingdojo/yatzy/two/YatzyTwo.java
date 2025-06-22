@@ -39,6 +39,28 @@ public class YatzyTwo implements YatzyCalculator {
         return filteredSum( dice, 5 );
     }
 
+    public int sixes( List<Integer> dice ){
+        return filteredSum( dice, 6 );
+    }
+
+    public int pair( List<Integer> dice ){
+        for ( int die : DICE_VALUES )
+            if ( diceFrequencies( dice ).get( die ) >= 2 )
+                return die * 2;
+        return 0;
+    }
+
+    private Map<Integer, Integer> diceFrequencies( List<Integer> dice ){
+        return Map.of(
+            6, sixes( dice )  / 6,
+            5, fives( dice )  / 5,
+            4, fours( dice )  / 4,
+            3, threes( dice ) / 3,
+            2, twos( dice )   / 2,
+            1, ones( dice )
+        );
+    }
+
     public int yatzy( List<Integer> dice ){
         return chance( dice ) / dice.size() == dice.get( 0 )
             ? 50
@@ -66,25 +88,6 @@ public class YatzyTwo implements YatzyCalculator {
         // calculate the score
         int result;
         switch (category) {
-            case SIXES:
-                // sum all the sixes
-                result = diceFrequencies.get(6) * 6;
-                break;
-
-            case PAIR:
-
-                // score pair if two dice are the same
-                int pairResult = 0;
-                // score highest pair if there is more than one
-                for (int i : DICE_VALUES) {
-                    if (diceFrequencies.get(i) >= 2) {
-                        pairResult = i * 2;
-                        break;
-                    }
-                }
-                result = pairResult;
-                break;
-
             case THREE_OF_A_KIND:
 
                 // score if three dice are the same
