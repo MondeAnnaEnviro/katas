@@ -51,9 +51,9 @@ public class YatzyTwoTest {
 
     @Test
     public void fours(){
-        assertEquals(12, yatzyTwo.score(List.of(4,4,4,5,5), "FOURS"));
-        assertEquals(8, yatzyTwo.score(List.of(4,4,5,5,5), "FOURS"));
-        assertEquals(4, yatzyTwo.score(List.of(4,5,5,5,5), "FOURS"));
+        assertThat( yatzyTwo.fours( List.of( 4, 4, 4, 5, 5 ))).isEqualTo( 12 );
+        assertThat( yatzyTwo.fours( List.of( 4, 4, 5, 5, 5 ))).isEqualTo(  8 );
+        assertThat( yatzyTwo.fours( List.of( 4, 5, 5, 5, 5 ))).isEqualTo(  4 );
     }
 
     @Test
