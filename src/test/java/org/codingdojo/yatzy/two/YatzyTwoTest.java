@@ -30,11 +30,11 @@ public class YatzyTwoTest {
     }
 
     @Test
-    public void test_1s(){
-        assertEquals(1, yatzyTwo.score(List.of(1,2,3,4,5), "ONES"));
-        assertEquals(2, yatzyTwo.score(List.of(1,2,1,4,5), "ONES"));
-        assertEquals(0, yatzyTwo.score(List.of(6,2,2,4,5), "ONES"));
-        assertEquals(4, yatzyTwo.score(List.of(1,2,1,1,1), "ONES"));
+    public void sumOfOnes(){
+        assertThat( yatzyTwo.ones( List.of( 1, 2, 3, 4, 5 ))).isEqualTo( 1 );
+        assertThat( yatzyTwo.ones( List.of( 1, 2, 1, 4, 5 ))).isEqualTo( 2 );
+        assertThat( yatzyTwo.ones( List.of( 6, 2, 2, 4, 5 ))).isEqualTo( 0 );
+        assertThat( yatzyTwo.ones( List.of( 1, 2, 1, 1, 1 ))).isEqualTo( 4 );
     }
 
     @Test

@@ -19,6 +19,13 @@ public class YatzyTwo implements YatzyCalculator {
                 .sum();
     }
 
+    public int ones( List<Integer> dice ){
+        return dice.stream()
+                .mapToInt( Integer::valueOf )
+                .filter( integer -> integer == 1 )
+                .sum();
+    }
+
     public int yatzy( List<Integer> dice ){
         return chance( dice ) / dice.size() == dice.get( 0 )
             ? 50
@@ -46,27 +53,6 @@ public class YatzyTwo implements YatzyCalculator {
         // calculate the score
         int result;
         switch (category) {
-            case CHANCE:
-
-                // chance sums the dice
-                result = dice.stream().mapToInt(Integer::intValue).sum();
-                break;
-
-            case YATZY:
-
-                // score for yatzy if all dice are the same
-                int yatzyResult = 0;
-                if (diceFrequencies.containsValue(5)) {
-                    yatzyResult = 50;
-                }
-                result = yatzyResult;
-                break;
-
-            case ONES:
-                // sum all the ones
-                result = diceFrequencies.get(1);
-                break;
-
             case TWOS:
                 // sum all the twos
                 result = diceFrequencies.get(2) * 2;
