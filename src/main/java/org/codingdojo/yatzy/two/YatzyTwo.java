@@ -19,6 +19,12 @@ public class YatzyTwo implements YatzyCalculator {
                 .sum();
     }
 
+    public int yatzy( List<Integer> dice ){
+        return chance( dice ) / dice.size() == dice.get( 0 )
+            ? 50
+            : 0;
+    }
+
     @Override
     public List<String> validCategories() {
         return Arrays.stream(YatzyCategory.values()).map(Enum::toString).collect(Collectors.toList());

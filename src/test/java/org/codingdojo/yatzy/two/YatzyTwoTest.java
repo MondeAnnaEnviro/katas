@@ -23,10 +23,10 @@ public class YatzyTwoTest {
     }
 
     @Test
-    public void yatzy_scores_50(){
-        assertEquals(50, yatzyTwo.score(List.of(4,4,4,4,4), "YATZY"));
-        assertEquals(50, yatzyTwo.score(List.of(6,6,6,6,6), "YATZY"));
-        assertEquals(0, yatzyTwo.score(List.of(6,6,6,6,3), "YATZY"));
+    public void yatzyScoresFify(){
+        assertThat( yatzyTwo.yatzy( List.of( 4, 4, 4, 4, 4 ))).isEqualTo( 50 );
+        assertThat( yatzyTwo.yatzy( List.of( 6, 6, 6, 6, 6 ))).isEqualTo( 50 );
+        assertThat( yatzyTwo.yatzy( List.of( 6, 6, 6, 6, 3 ))).isEqualTo(  0 );
     }
 
     @Test
