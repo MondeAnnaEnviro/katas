@@ -1,0 +1,13 @@
+# all
+*
+
+# except: file
+!.gitignore
+!*.cabal
+!*.hs
+!*.md
+
+
+# except: dir
+!src
+!tests
