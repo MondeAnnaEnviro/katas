@@ -5,12 +5,16 @@ import Test.Hspec
 
 main :: IO ()
 main = hspec $ do
-  describe "sum delimters string of numbers" $ do
+  describe "sum delimited string of numbers:" $ do
     it "empty strings sums to zero" $ do
       add "" `shouldBe` 0
 
     it "single number returned as int" $ do
       add "123" `shouldBe` 123
+
+    it "two comma delimited numbers are summed" $ do
+      add "10,1" `shouldBe` 11
+
 {-
     it "'x' -> x" $ do
       add "3" `shouldBe` 3
