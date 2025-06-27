@@ -20,8 +20,8 @@ unifyDelimiter s = T.replace ( getDelimiters s ) standardDelimiter ( getNumbers 
 
 getDelimiters :: T.Text -> T.Text
 getDelimiters s
-  | T.take 2 s /= T.pack "//" = T.pack "\n"
-  | otherwise = T.take 1 $ T.reverse $ T.take 3 s
+  | hasUserDelimiter s = T.take 1 $ T.reverse $ T.take 3 s
+  | otherwise = T.pack "\n"
 
 
 getNumbers :: T.Text -> T.Text
@@ -34,3 +34,5 @@ intList :: T.Text -> [Int]
 intList s = [ read $ T.unpack num | num <- T.splitOn standardDelimiter s ]
 
 
+hasUserDelimiter :: T.Text -> Bool
+hasUserDelimiter s = T.take 2 s == T.pack "//"
