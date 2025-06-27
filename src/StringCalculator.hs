@@ -7,4 +7,8 @@ import qualified Data.Text as T
 
 add :: String -> Int
 add "" = 0
-add s = sum [ read ( T.unpack num ) | num <- T.splitOn ( T.pack "," )( T.pack s )]
+add s = sum $ toList s
+
+
+toList :: String -> [Int]
+toList s = [ read $ T.unpack num | num <- T.splitOn ( T.pack "," ) $ T.pack s ]
