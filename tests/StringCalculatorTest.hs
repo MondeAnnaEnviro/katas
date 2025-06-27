@@ -11,3 +11,6 @@ main = hspec $ do
 
     it "'x' -> x" $ do
       add "3" `shouldBe` 3
+
+    it "'x,y' -> x + y" $ do
+      add "8,8" `shouldBe` 16
