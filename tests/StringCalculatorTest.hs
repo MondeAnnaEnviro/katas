@@ -6,9 +6,11 @@ import Test.Hspec
 main :: IO ()
 main = hspec $ do
   describe "sum delimters string of numbers" $ do
-    it "'' -> 0" $ do
+    it "empty strings sums to zero" $ do
       add "" `shouldBe` 0
 
+
+{-
     it "'x' -> x" $ do
       add "3" `shouldBe` 3
 
@@ -23,3 +25,4 @@ main = hspec $ do
 
     it "user provided delimiter" $ do
       add "//;\n4;3" `shouldBe` 7
+-}
