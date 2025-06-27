@@ -3,10 +3,7 @@
 def add( numbers: str ) -> int:
     delimiter = "\n"
 
-    if "//" in numbers:
-        idx = numbers.index( "\n" )
-        delimiter = numbers[ 2 : idx ].replace( "[", "" ).replace( "]", "" )
-        numbers = numbers[ idx + 1 : ]
+    delimiter, numbers = parseDelimiter( numbers )
 
     nums = [
         int( num)
@@ -21,3 +18,12 @@ def add( numbers: str ) -> int:
         raise ValueError( f"negatives not allowed: { negsStr }" )
 
     return sum( nums )
+
+def parseDelimiter( numbers: str ) -> tuple:
+    if "//" not in numbers:
+        return "\n", numbers
+
+    idx = numbers.index( "\n" )
+    delimiter = numbers[ 2 : idx ].replace( "[", "" ).replace( "]", "" )
+    return delimiter, numbers[ idx + 1 : ]
+
