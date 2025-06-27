@@ -5,5 +5,5 @@ module StringCalculator where
 import qualified Data.Text as T
 
 
-isLinked :: Bool
-isLinked = True
+add :: String -> Int
+add "" = 0

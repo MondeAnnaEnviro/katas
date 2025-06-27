@@ -5,6 +5,6 @@ import Test.Hspec
 
 main :: IO ()
 main = hspec $ do
-  describe "ensure linkage to src" $ do
-    it "is linked" $ do
-      isLinked `shouldBe` True
+  describe "sum delimters string of numbers" $ do
+    it "add '' -> 0" $ do
+      add "" `shouldBe` 0
