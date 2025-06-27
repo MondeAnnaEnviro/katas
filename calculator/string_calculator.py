@@ -5,7 +5,7 @@ def add( numbers: str ) -> int:
     delimiter = "\n"
 
     delimiters, numbers = parseDelimiter( numbers )
-    print( delimiters )
+
     nums = [
         int( num)
         for num in re.split( delimiters, numbers )
