@@ -9,7 +9,8 @@ main = hspec $ do
     it "empty strings sums to zero" $ do
       add "" `shouldBe` 0
 
-
+    it "single number returned as int" $ do
+      add "123" `shouldBe` 123
 {-
     it "'x' -> x" $ do
       add "3" `shouldBe` 3
