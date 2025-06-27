@@ -18,9 +18,14 @@ main = hspec $ do
     it "multiple comma delimimted numbers are summed" $ do
       add "1,10,100" `shouldBe` 111
 
+    {-
+    it "negatives throw" $ do
+      add "-1" `shouldThrow` "negatives not allowed: -1"
+    -}
+
+  describe "\nparse non-standard delimiters:" $ do
     it "use comma and newline as delimiters" $ do
       add "1,2\n3" `shouldBe` 6
 
-  describe "\nparse user provided delimiters:" $ do
     it "single char delimiter" $ do
       add "//;\n4;3" `shouldBe` 7
