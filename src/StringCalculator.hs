@@ -7,8 +7,14 @@ import qualified Data.Text as T
 
 add :: String -> Int
 add "" = 0
-add s = sum $ toList s
+add s = sum $ toList $ unifyDelimiter $ T.pack s
 
 
-toList :: String -> [Int]
-toList s = [ read $ T.unpack num | num <- T.splitOn ( T.pack "," ) $ T.pack s ]
+unifyDelimiter :: T.Text -> T.Text
+unifyDelimiter s = T.replace ( T.pack "\n" )( T.pack "," ) s
+
+
+toList :: T.Text -> [Int]
+toList s = [ read $ T.unpack num | num <- T.splitOn comma s ]
+  where
+    comma = T.pack ","

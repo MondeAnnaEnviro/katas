@@ -17,13 +17,11 @@ main = hspec $ do
 
     it "multiple comma delimimted numbers are summed" $ do
       add "1,10,100" `shouldBe` 111
-{-
-    it "'x0,x1,...xn' -> sum [ x0, x1, ..., xn ]" $ do
-      add "7,7,7" `shouldBe` 21
 
     it "use comma and newline as delimiters" $ do
       add "1,2\n3" `shouldBe` 6
 
+{-
     it "user provided delimiter" $ do
       add "//;\n4;3" `shouldBe` 7
 -}
