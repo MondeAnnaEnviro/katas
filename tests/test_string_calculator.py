@@ -1,4 +1,5 @@
 from calculator.string_calculator import add
+import pytest
 
 
 def test_empty_string_returns_zero():
@@ -23,3 +24,9 @@ def test_newline_delimiter():
 
 def test_parse_user_delimiter():
     assert add( "//;\n1;1" ) == 2
+
+
+def test_negatives_throw():
+    match = "negatives not allowed: -2, -3"
+    with pytest.raises( ValueError, match=match ):
+        add( "-2,-3" )
