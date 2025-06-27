@@ -15,13 +15,9 @@ main = hspec $ do
     it "two comma delimited numbers are summed" $ do
       add "10,1" `shouldBe` 11
 
+    it "multiple comma delimimted numbers are summed" $ do
+      add "1,10,100" `shouldBe` 111
 {-
-    it "'x' -> x" $ do
-      add "3" `shouldBe` 3
-
-    it "'x,y' -> x + y" $ do
-      add "8,8" `shouldBe` 16
-
     it "'x0,x1,...xn' -> sum [ x0, x1, ..., xn ]" $ do
       add "7,7,7" `shouldBe` 21
 
