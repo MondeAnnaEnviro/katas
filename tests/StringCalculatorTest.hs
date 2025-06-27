@@ -6,5 +6,8 @@ import Test.Hspec
 main :: IO ()
 main = hspec $ do
   describe "sum delimters string of numbers" $ do
-    it "add '' -> 0" $ do
+    it "'' -> 0" $ do
       add "" `shouldBe` 0
+
+    it "'x' -> x" $ do
+      add "3" `shouldBe` 3
