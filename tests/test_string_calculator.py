@@ -26,6 +26,10 @@ def test_parse_user_delimiter():
     assert add( "//;\n1;1" ) == 2
 
 
+def test_parse_varied_length_user_delimiter():
+    assert add( "//[;;;]\n11;;;11" ) == 22
+
+
 def test_negatives_throw():
     match = "negatives not allowed: -2, -3"
     with pytest.raises( ValueError, match=match ):

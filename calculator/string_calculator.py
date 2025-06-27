@@ -5,7 +5,7 @@ def add( numbers: str ) -> int:
 
     if "//" in numbers:
         idx = numbers.index( "\n" )
-        delimiter = numbers[ 2 : idx ]
+        delimiter = numbers[ 2 : idx ].replace( "[", "" ).replace( "]", "" )
         numbers = numbers[ idx + 1 : ]
 
     nums = [
@@ -19,4 +19,5 @@ def add( numbers: str ) -> int:
     if negs:
         negsStr = ", ".join( negs )
         raise ValueError( f"negatives not allowed: { negsStr }" )
+
     return sum( nums )
