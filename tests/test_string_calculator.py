@@ -15,3 +15,7 @@ def test_doubley_numbered_string_returns_sum_as_int():
 
 def test_n_numbered_string_summation():
     assert add( "1,2,3,4" ) == 10
+
+
+def test_newline_delimiter():
+    assert add( "1\n2,3") == 6
