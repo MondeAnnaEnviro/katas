@@ -20,3 +20,6 @@ main = hspec $ do
 
     it "use comma and newline as delimiters" $ do
       add "1,2\n3" `shouldBe` 6
+
+    it "user provided delimiter" $ do
+      add "//;\n4;3" `shouldBe` 7
