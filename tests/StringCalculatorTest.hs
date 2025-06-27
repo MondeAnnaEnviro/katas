@@ -14,3 +14,9 @@ main = hspec $ do
 
     it "'x,y' -> x + y" $ do
       add "8,8" `shouldBe` 16
+
+    it "'x0,x1,...xn' -> sum [ x0, x1, ..., xn ]" $ do
+      add "7,7,7" `shouldBe` 21
+
+    it "use comma and newline as delimiters" $ do
+      add "1,2\n3" `shouldBe` 6
