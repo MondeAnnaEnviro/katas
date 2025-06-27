@@ -1,13 +1,14 @@
+import re
 
 
 def add( numbers: str ) -> int:
     delimiter = "\n"
 
-    delimiter, numbers = parseDelimiter( numbers )
-
+    delimiters, numbers = parseDelimiter( numbers )
+    print( delimiters )
     nums = [
         int( num)
-        for num in numbers.replace( delimiter, "," ).split( "," )
+        for num in re.split( delimiters, numbers )
         if numbers
     ]
 
@@ -21,9 +22,11 @@ def add( numbers: str ) -> int:
 
 def parseDelimiter( numbers: str ) -> tuple:
     if "//" not in numbers:
-        return "\n", numbers
+        return "\n|,", numbers
 
     idx = numbers.index( "\n" )
-    delimiter = numbers[ 2 : idx ].replace( "[", "" ).replace( "]", "" )
-    return delimiter, numbers[ idx + 1 : ]
+    delimiters = numbers[ 2 : idx ].replace( "][", "|" ).replace( "[", "" ).replace( "]", "" )
+    numbers = numbers[ idx + 1 : ]
+
+    return delimiters, numbers
 
