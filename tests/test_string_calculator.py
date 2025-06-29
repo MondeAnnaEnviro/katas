@@ -16,3 +16,7 @@ def test_two_numbers():
 
 def test_n_numbers():
     assert add( "1,2,3,4" ) == 10
+
+
+def test_newline_as_delimiter():
+    assert add( "30,20\n5" ) == 55
