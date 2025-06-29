@@ -20,3 +20,7 @@ def test_n_numbers():
 
 def test_newline_as_delimiter():
     assert add( "30,20\n5" ) == 55
+
+
+def test_user_delimiter():
+    assert add( "//;\n1;2" ) == 3

@@ -2,4 +2,14 @@ import re
 
 
 def add( numbers: str ) -> int:
-    return sum( int( num ) for num in re.split( ",|\n", numbers ) if numbers )
+    delimiters = ",|\n"
+    if "//" == numbers[:2]:
+        idx = numbers.find( "\n" )
+        delimiters = numbers[ 2:idx ]
+        numbers = numbers[ idx+1: ]
+
+    return sum(
+            int( num )
+            for num in re.split( delimiters, numbers )
+            if numbers
+    )
