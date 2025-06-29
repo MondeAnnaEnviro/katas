@@ -9,5 +9,10 @@ def test_empty_string():
 def test_single_number():
     assert add( "5" ) == 5
 
+
 def test_two_numbers():
     assert add( "30,4" ) == 34
+
+
+def test_n_numbers():
+    assert add( "1,2,3,4" ) == 10
