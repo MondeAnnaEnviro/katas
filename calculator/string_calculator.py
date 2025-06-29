@@ -9,7 +9,7 @@ def add( numbers: str ) -> int:
         numbers = numbers[ idx+1: ]
 
     nums = [
-        int( num )
+        int( num ) if int( num ) <= 1000 else 0
         for num in re.split( delimiters, numbers )
         if numbers
     ]
