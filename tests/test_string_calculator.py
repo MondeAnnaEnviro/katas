@@ -22,10 +22,6 @@ def test_newline_as_delimiter():
     assert add( "30,20\n5" ) == 55
 
 
-def test_user_delimiter():
-    assert add( "//;\n1;2" ) == 3
-
-
 def test_negatives_throw():
     match = "negatives not allowed: -1, -2"
     with pytest.raises( ValueError, match=match):
@@ -34,3 +30,11 @@ def test_negatives_throw():
 
 def test_numbers_greater_than_one_thousand_ignored():
     assert add( "1,1001" ) == 1
+
+
+def test_user_delimiter():
+    assert add( "//;\n1;2" ) == 3
+
+
+def test_var_length_user_delimiter():
+    assert add( "//[**]\n5**5") == 10

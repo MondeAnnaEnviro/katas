@@ -2,11 +2,7 @@ import re
 
 
 def add( numbers: str ) -> int:
-    delimiters = ",|\n"
-    if "//" == numbers[:2]:
-        idx = numbers.find( "\n" )
-        delimiters = numbers[ 2:idx ]
-        numbers = numbers[ idx+1: ]
+    delimiters, numbers = parse_delimiters( numbers )
 
     nums = [
         int( num ) if int( num ) <= 1000 else 0
@@ -21,3 +17,17 @@ def add( numbers: str ) -> int:
         raise ValueError( f"negatives not allowed: {negsStr}" )
 
     return sum( nums )
+
+
+def parse_delimiters( numbers: str ) -> tuple:
+    delimiters = ",|\n"
+    numbers = numbers.replace( "*", "," ).replace( "|", "," )
+
+    if "//" != numbers[ :2 ]:
+        return delimiters, numbers
+
+    idx = numbers.find( "\n" )
+    delimiters = numbers[ 2:idx ].replace( "[", "" ).replace( "]", "" )
+    numbers = numbers[ idx+1: ]
+
+    return delimiters, numbers
