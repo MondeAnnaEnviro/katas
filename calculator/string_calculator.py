@@ -1,10 +1,5 @@
 def add( numbers: str ) -> int:
-    if "//" == numbers[ :2 ]:
-        idx = numbers.index( "\n" )
-        delimiter = numbers[ 2:idx ]
-        numbers = numbers[ idx+1: ].replace( delimiter, "," )
-
-    numbers = numbers.replace( "\n", "," )
+    numbers = standardise_delimiter( numbers )
 
     nums = [
         int( num ) if int( num ) <= 1000 else 0
@@ -19,4 +14,15 @@ def add( numbers: str ) -> int:
         raise ValueError( f"negatives not allowed: {negsStr}" )
 
     return sum( nums )
+
+
+def standardise_delimiter( numbers: str ) -> str:
+    numbers.replace( "\n", "," )
+    if "//" != numbers[ :2 ]:
+        return numbers
+
+    idx = numbers.index( "\n" )
+    delimiter = numbers[ 2:idx ].replace( "[", "" ).replace( "]", "" )
+    return numbers[ idx+1: ].replace( delimiter, "," )
+
 
