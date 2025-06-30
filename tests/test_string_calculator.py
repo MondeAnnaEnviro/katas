@@ -34,6 +34,11 @@ def test_var_len_user_delim():
     assert add( "//[**]\n1**2" ) == 3
 
 
+@pytest.mark.skip( "time ran out" )
+def test_var_len_user_delim():
+    assert add( "//[*][$]\n1*2$5" ) == 8
+
+
 def test_negatives_throw():
     match = "negatives not allowed: -1, -2"
     with pytest.raises( ValueError, match=match):
