@@ -24,3 +24,9 @@ def test_newline():
 
 def test_user_delim():
     assert add( "//*\n1*2" ) == 3
+
+
+def test_negatives_throw():
+    match = "negatives not allowed: -1, -2"
+    with pytest.raises( ValueError, match=match):
+        add( "-1,-2" )

@@ -6,8 +6,17 @@ def add( numbers: str ) -> int:
 
     numbers = numbers.replace( "\n", "," )
 
-    return sum(
+    nums = [
         int( num )
         for num in numbers.replace( "\n", "," ).split( "," )
         if numbers
-    )
+    ]
+
+    negs = [ str( num ) for num in nums if num < 0 ]
+
+    if negs:
+        negsStr = ", ".join( negs )
+        raise ValueError( f"negatives not allowed: {negsStr}" )
+
+    return sum( nums )
+
