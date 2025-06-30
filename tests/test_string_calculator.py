@@ -12,3 +12,7 @@ def test_single_number():
 
 def test_two_numbers():
     assert add( "8,8" ) == 16
+
+
+def test_n_numbers():
+    assert add( "1,2,3,4" ) == 10
