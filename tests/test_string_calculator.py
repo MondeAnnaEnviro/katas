@@ -22,6 +22,10 @@ def test_newline():
     assert add( "1,2\n3" ) == 6
 
 
+def test_greater_than_one_thousand():
+    assert add( "1,1001" ) == 1
+
+
 def test_user_delim():
     assert add( "//*\n1*2" ) == 3
 

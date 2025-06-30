@@ -7,7 +7,7 @@ def add( numbers: str ) -> int:
     numbers = numbers.replace( "\n", "," )
 
     nums = [
-        int( num )
+        int( num ) if int( num ) <= 1000 else 0
         for num in numbers.replace( "\n", "," ).split( "," )
         if numbers
     ]
