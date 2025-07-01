@@ -14,3 +14,6 @@ main = hspec $ do
 
     it "sum string of two comma seperated numbers" $ do
       add "1,1" `shouldBe` 2
+
+    it "sum string of n comma seperated numbers" $ do
+      add "0,1,1,2,3,5,8" `shouldBe` 20
