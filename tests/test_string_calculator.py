@@ -42,3 +42,7 @@ def test_var_len_user_delim():
 
 def test_multi_user_delims():
     assert add( "//[#][!]\n0!1#2" ) == 3
+
+
+def test_var_len_multi_user_delims():
+    assert add( "//[#][!!][$$$]\n0!!1#2$$$3" ) == 6
