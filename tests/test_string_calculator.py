@@ -22,5 +22,13 @@ def test_newline():
     assert add( "1,2\n3" ) == 6
 
 
+def test_negatives_throw():
+    match = "negatives not allowed: -10, -9"
+    with pytest.raises( ValueError, match=match ):
+        add( "-10,-9" )
+
+
 def test_user_delim():
     assert add( "//;\n3;2" ) == 5
+
+
