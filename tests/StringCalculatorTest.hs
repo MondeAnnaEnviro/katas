@@ -5,6 +5,6 @@ import Test.Hspec
 
 main :: IO ()
 main = hspec $ do
-  describe "ensure is connected:" $ do
-    it "should pass" $ do
-      1 `shouldBe` 1
+  describe "sum string:" $ do
+    it "empty string renders zero" $ do
+      add "" `shouldBe` 0
