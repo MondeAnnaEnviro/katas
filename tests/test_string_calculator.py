@@ -8,3 +8,7 @@ def test_empty_str_return_zero():
 
 def test_single_number():
     assert add( "34" ) == 34
+
+
+def test_two_numbers():
+    assert add( "3,4" ) == 7
