@@ -2,4 +2,5 @@ module StringCalculator where
 
 
 add :: String -> Int
-add _ = 0
+add "" = 0
+add x = read x :: Int
