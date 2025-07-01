@@ -3,7 +3,7 @@
 def add( numbers: str ) -> int:
     numbers = standardise_delimiter( numbers )
     nums = [
-        int( num )
+        int( num ) if int( num ) <= 1000 else 0
         for num in numbers.split( "," )
         if numbers
     ]

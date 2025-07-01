@@ -22,6 +22,10 @@ def test_newline():
     assert add( "1,2\n3" ) == 6
 
 
+def test_only_n_at_1000_or_less():
+    assert add( "1,1001" ) == 1
+
+
 def test_negatives_throw():
     match = "negatives not allowed: -10, -9"
     with pytest.raises( ValueError, match=match ):
