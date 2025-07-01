@@ -38,3 +38,7 @@ def test_user_delim():
 
 def test_var_len_user_delim():
     assert add( "//[;;]\n3;;22" ) == 25
+
+
+def test_multi_user_delims():
+    assert add( "//[#][!]\n0!1#2" ) == 3
