@@ -16,3 +16,7 @@ def test_two_numbers():
 
 def test_n_numbers():
     assert add( "3,4,5,6" ) == 18
+
+
+def test_newline():
+    assert add( "1,2\n3" ) == 6
