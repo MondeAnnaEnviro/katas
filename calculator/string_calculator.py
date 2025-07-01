@@ -18,10 +18,12 @@ def add( numbers: str ) -> int:
 
 
 def standardise_delimiter( numbers: str ) -> str:
-    if numbers[ :2 ] == "//":
-        idx = numbers.index( "\n" )
-        delims = numbers[ 2:idx ]
-        numbers = numbers[ idx+1: ].replace( delims, "," )
-    numbers = numbers.replace( "\n", "," )
+    if numbers[ :2 ] != "//":
+        return numbers.replace( "\n", "," )
+
+    idx = numbers.index( "\n" )
+    delims = numbers[ 2:idx ].replace( "[", "" ).replace( "]", "" )
+    numbers = numbers[ idx+1: ].replace( delims, "," )
+
     return numbers
 
