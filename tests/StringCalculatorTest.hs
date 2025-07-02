@@ -35,6 +35,9 @@ main = hspec $ do
     it "multiple delimiters" $ do
       add "//[;][$]\n12;13$14" `shouldBe` 39
 
+    it "multiple var len delimiters" $ do
+      add "//[!][@@][###]\n0!54@@65###65" `shouldBe` 184
+
   describe "exceptions:" $ do
     it "negatives throw error" $ do
       let message = "negatives not allowed: [-1,-2]"
