@@ -35,3 +35,7 @@ def test_negatives_throw():
 
 def test_user_delim():
     assert add( "//;\n5;5" ) == 10
+
+
+def test_var_len_user_delim():
+    assert add( "//[;;]\n5;;5;;5" ) == 15

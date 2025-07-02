@@ -3,7 +3,7 @@
 def add( numbers: str ) -> int:
     if numbers[ :2 ] == "//":
         idx = numbers.index( "\n" )
-        delim = numbers[ 2:idx ]
+        delim = numbers[ 2:idx ].replace( "[", "" ).replace( "]", "")
         numbers = numbers[ idx+1: ].replace( delim, "," )
 
     nums = [
