@@ -6,7 +6,8 @@ def add( numbers: str ) -> int:
         delim = numbers[ 2:idx ]
         numbers = numbers[ idx+1: ].replace( delim, "," )
 
-    nums = [ int( num )
+    nums = [
+        int( num ) if int( num ) <= 1000 else 0
         for num in numbers.replace( "\n", "," ).split( "," )
         if numbers
     ]

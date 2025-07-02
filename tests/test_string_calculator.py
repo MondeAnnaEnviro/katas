@@ -23,6 +23,10 @@ def test_newline():
     assert add( "1,2\n7" ) == 10
 
 
+def test_greater_than_one_thousand_ignored():
+    assert add( "1,1001" ) == 1
+
+
 def test_negatives_throw():
     match = "negatives not allowed: -1, -2"
     with pytest.raises( ValueError, match=match ):
