@@ -13,3 +13,5 @@ main = hspec $ do
     it "single numbered string returns as int" $ do
       add "10" `shouldBe` 10
 
+    it "two numbered string returns as sum" $ do
+      add "1,0" `shouldBe` 1
