@@ -1,5 +1,7 @@
 
 import StringCalculator
+
+import Control.Exception
 import Test.Hspec
 
 
@@ -24,3 +26,7 @@ main = hspec $ do
   describe "parse user provided delimiters:" $ do
     it "single delimiter" $ do
       add "//;\n0;0" `shouldBe` 0
+
+  describe "handling errors:" $ do
+    it "negative numbers throw" $ do
+      evaluate ( add "-1,-2" ) `shouldThrow` errorCall "negatives not allowed: [-1,-2]"
