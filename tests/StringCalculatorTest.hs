@@ -5,6 +5,6 @@ import Test.Hspec
 
 main :: IO ()
 main = hspec $ do
-  describe "should pass" $ do
-    it "passes" $ do
-      0 `shouldBe` 0
+  describe "add delimited numbers" $ do
+    it "empty string is zero" $ do
+      add "" `shouldBe` 0
