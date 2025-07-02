@@ -10,3 +10,6 @@ main = hspec $ do
     it "empty string returns zero" $ do
       add "" `shouldBe` 0
 
+    it "single numbered string returns as int" $ do
+      add "10" `shouldBe` 10
+
