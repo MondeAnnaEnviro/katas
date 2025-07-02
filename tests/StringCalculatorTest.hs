@@ -22,6 +22,9 @@ main = hspec $ do
     it "newline as delimiter" $ do
       add "1,2\n4" `shouldBe` 7
 
+    it "numbers greater than one thousand ignore" $ do
+      add "1,1001" `shouldBe` 1
+
   describe "parse user provided delimiter:" $ do
     it "single delimiter" $ do
       add "//;\n2;3" `shouldBe` 5

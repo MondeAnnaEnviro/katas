@@ -6,7 +6,7 @@ import Data.List.Split
 
 add :: String -> Int
 add "" = 0
-add numbers = sum . parseNegs . intList $ numbers
+add numbers = sum . oneThousandOrLess . parseNegs . intList $ numbers
 
 
 getBody :: String -> String
@@ -39,6 +39,10 @@ intList numbers = [ read num :: Int | num <- multiSplit ( getDelims numbers )( g
 
 multiSplit :: [String] -> String -> [String]
 multiSplit delims nums = foldl (\ xs d -> xs >>= splitOn d ) [nums] delims
+
+
+oneThousandOrLess :: [Int] -> [Int]
+oneThousandOrLess integers = filter ( <= 1000 ) integers
 
 
 parseNegs :: [Int] -> [Int]
