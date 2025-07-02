@@ -11,5 +11,8 @@ main = hspec $ do
     it "empty string returns zero" $ do
       add "" `shouldBe` 0
 
-    it "single numbers returned as int" $ do
+    it "single number returned as int" $ do
       add "555" `shouldBe` 555
+
+    it "two numbers returned as sum" $ do
+      add "5,5" `shouldBe` 10
