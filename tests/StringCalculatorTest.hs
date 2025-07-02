@@ -9,3 +9,6 @@ main = hspec $ do
   describe "sum delimited string of numbers:" $ do
     it "empty string results in zero" $ do
       add "" `shouldBe` 0
+
+    it "single number converted to int" $ do
+      add "53" `shouldBe` 53
