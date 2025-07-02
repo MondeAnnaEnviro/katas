@@ -4,7 +4,6 @@ import StringCalculator
 import Control.Exception
 import Test.Hspec
 
-
 main :: IO ()
 main = hspec $ do
   describe "sum delimited numbers:" $ do
@@ -22,6 +21,9 @@ main = hspec $ do
 
     it "use newline as delimiter" $ do
       add "1,2\n3" `shouldBe` 6
+
+    it "numbers greater than one thousand ignored" $ do
+      add "1,1001" `shouldBe` 1
 
   describe "handle exceptions" $ do
     it "negatives throw" $ do
