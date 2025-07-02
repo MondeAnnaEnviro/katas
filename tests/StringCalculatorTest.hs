@@ -5,7 +5,7 @@ import Test.Hspec
 
 main :: IO ()
 main = hspec $ do
-  describe "add delimited numbers" $ do
+  describe "add delimited numbers:" $ do
     it "empty string is zero" $ do
       add "" `shouldBe` 0
 
@@ -17,3 +17,6 @@ main = hspec $ do
 
     it "n numbers summed into int" $ do
       add "1,2,3,4" `shouldBe` 10
+
+    it "newline as delimiter" $ do
+      add "1,2\n3" `shouldBe` 6
