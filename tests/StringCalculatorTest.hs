@@ -7,6 +7,6 @@ import Test.Hspec
 
 main :: IO ()
 main = hspec $ do
-  describe "" $ do
-    it "" $ do
-      0 `shouldBe` 0
+  describe "sum delimited numbers:" $ do
+    it "empty string returns zero" $ do
+      add "" `shouldBe` 0
