@@ -1,4 +1,4 @@
 
 
 def add( numbers: str ) -> int:
-    return int( numbers ) if numbers else 0
+    return sum( int( num ) for num in numbers.split( "," ) if numbers )
