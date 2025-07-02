@@ -19,3 +19,6 @@ main = hspec $ do
 
     it "n numbers returned as sum" $ do
       add "5,55,5" `shouldBe` 65
+
+    it "use newline as delimiter" $ do
+      add "1,2\n3" `shouldBe` 6
