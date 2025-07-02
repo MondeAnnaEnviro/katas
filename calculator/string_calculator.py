@@ -1,14 +1,7 @@
 
 
 def add( numbers: str ) -> int:
-    if numbers[ :2 ] == "//":
-        idx = numbers.index( "\n" )
-        delims = numbers[ 2:idx ].replace( "][", "," ).replace( "[", "" ).replace( "]", "")
-        numbers = numbers[ idx+1: ]
-
-        for delim in delims.split( "," ):
-            print( delims )
-            numbers = numbers.replace( delim, "," )
+    numbers = parseDelim( numbers )
 
     nums = [
         int( num ) if int( num ) <= 1000 else 0
@@ -23,3 +16,16 @@ def add( numbers: str ) -> int:
         raise ValueError( f"negatives not allowed: {negsStr}" )
 
     return sum( nums )
+
+
+def parseDelim( numbers: str ) -> str:
+    if numbers[ :2 ] == "//":
+
+        idx = numbers.index( "\n" )
+        delims = numbers[ 2:idx ].replace( "][", "," ).replace( "[", "" ).replace( "]", "")
+        numbers = numbers[ idx+1: ]
+
+        for delim in delims.split( "," ):
+            numbers = numbers.replace( delim, "," )
+
+    return numbers
