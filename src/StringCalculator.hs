@@ -26,11 +26,15 @@ getBody numbers
 getDelims :: String -> [String]
 getDelims numbers
   | not . hasFlag $ numbers = [",", "\n"]
-  | otherwise = [ drop 2 $ head . splitOn "\n" $ numbers ]
+  | otherwise = [ removeBrackets . drop 2 $ head . splitOn "\n" $ numbers ]
 
 
 getNegs :: [Int] -> [Int]
 getNegs integers = filter ( < 0 ) integers
+
+
+hasBrackets :: String -> Bool
+hasBrackets delims = head delims == '[' && last delims == ']'
 
 
 hasFlag :: String -> Bool
@@ -53,3 +57,9 @@ parseNegs :: [Int] -> [Int]
 parseNegs integers
   | hasNegs integers = error $ "negatives not allowed: " ++ show ( getNegs integers )
   | otherwise = integers
+
+
+removeBrackets :: String -> String
+removeBrackets delims
+  | not . hasBrackets $ delims = delims
+  | otherwise = tail . init $ delims
