@@ -1,6 +1,11 @@
 
 
 def add( numbers: str ) -> int:
+    if numbers[ :2 ] == "//":
+        idx = numbers.index( "\n" )
+        delim = numbers[ 2:idx ]
+        numbers = numbers[ idx+1: ].replace( delim, "," )
+
     return sum(
         int( num )
         for num in numbers.replace( "\n", "," ).split( "," )

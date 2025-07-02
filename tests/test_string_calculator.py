@@ -21,3 +21,7 @@ def test_n_numbers():
 
 def test_newline():
     assert add( "1,2\n7" ) == 10
+
+
+def test_user_delim():
+    assert add( "//;\n5;5" ) == 10
