@@ -5,5 +5,8 @@ import Control.Exception
 import Test.Hspec
 
 main :: IO ()
-main = putStrLn "I run"
+main = hspec $ do
+  describe "add numbers:" $ do
+    it "empty string returns zero" $ do
+      add "" `shouldBe` 0
 
