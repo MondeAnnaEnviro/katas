@@ -23,6 +23,10 @@ main = hspec $ do
     it "use newline as delimiter" $ do
       add "1,2\n3" `shouldBe` 6
 
+  describe "handle exceptions" $ do
+    it "negatives throw" $ do
+      evaluate ( add "-1,-2" ) `shouldThrow` errorCall "negatives not allowed: [-1,-2]"
+
   describe "parse user delimiters:" $ do
     it "single user delimiter" $ do
       add "//;\n45;45" `shouldBe` 90
