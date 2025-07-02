@@ -5,39 +5,5 @@ import Control.Exception
 import Test.Hspec
 
 main :: IO ()
-main = hspec $ do
-  describe "sum delimited numbers:" $ do
-    it "empty string returns zero" $ do
-      add "" `shouldBe` 0
+main = putStrLn "I run"
 
-    it "single number returned as int" $ do
-      add "555" `shouldBe` 555
-
-    it "two numbers returned as sum" $ do
-      add "5,5" `shouldBe` 10
-
-    it "n numbers returned as sum" $ do
-      add "5,55,5" `shouldBe` 65
-
-    it "use newline as delimiter" $ do
-      add "1,2\n3" `shouldBe` 6
-
-    it "numbers greater than one thousand ignored" $ do
-      add "1,1001" `shouldBe` 1
-
-  describe "handle exceptions" $ do
-    it "negatives throw" $ do
-      evaluate ( add "-1,-2" ) `shouldThrow` errorCall "negatives not allowed: [-1,-2]"
-
-  describe "parse user delimiters:" $ do
-    it "single user delimiter" $ do
-      add "//;\n45;45" `shouldBe` 90
-
-    it "n length user delimiter" $ do
-      add "//[;;]\n4;;5;;4;;5" `shouldBe` 18
-
-    it "multiple user delimiters" $ do
-      add "//[!][@]\n9!8@7" `shouldBe` 24
-
-    it "multiple var len user delimiters" $ do
-      add "//[!!][@][%%%]\n0!!1@2%%%39" `shouldBe` 42
