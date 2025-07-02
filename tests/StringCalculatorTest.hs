@@ -18,3 +18,6 @@ main = hspec $ do
 
     it "n numbers are summed" $ do
       add "6,5,4,3" `shouldBe` 18
+
+    it "newline as delimiter" $ do
+      add "1,2\n3" `shouldBe` 6
