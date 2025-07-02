@@ -35,3 +35,6 @@ main = hspec $ do
 
     it "n length user delimiter" $ do
       add "//[;;]\n4;;5;;4;;5" `shouldBe` 18
+
+    it "multiple user delimiters" $ do
+      add "//[!][@]\n9!8@7" `shouldBe` 24
