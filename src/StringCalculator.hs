@@ -19,11 +19,15 @@ getBody numbers
 getDelims :: String -> [String]
 getDelims numbers
   | not . hasFlag $ numbers = [",", "\n"]
-  | otherwise = [ drop 2 $ head . splitOn "\n" $ numbers ]
+  | otherwise = [ removeBrackets $ drop 2 $ head . splitOn "\n" $ numbers ]
 
 
 getNegs :: [Int] -> [Int]
 getNegs integers = filter ( < 0 ) integers
+
+
+hasBrackets :: String -> Bool
+hasBrackets numbers = head numbers == '[' && last numbers == ']'
 
 
 hasFlag :: String -> Bool
@@ -50,3 +54,9 @@ parseNegs integers
 
 parseSubThousand :: [Int] -> [Int]
 parseSubThousand integers = filter ( <= 1000 ) integers
+
+
+removeBrackets :: String -> String
+removeBrackets delims
+  | hasBrackets delims = init . tail $ delims
+  | otherwise = delims
