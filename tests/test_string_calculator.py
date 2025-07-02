@@ -43,3 +43,7 @@ def test_var_len_user_delim():
 
 def test_multi_user_delim():
     assert add( "//[;][#]\n5;5#4" ) == 14
+
+
+def test_multi_var_len_user_delim():
+    assert add( "//[;][##][%%%]\n0%%%5;5##4" ) == 14
