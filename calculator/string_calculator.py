@@ -5,7 +5,7 @@ def add( numbers: str ) -> int:
 
     nums = [
         int( num ) if int( num ) <= 1000 else 0
-        for num in numbers.replace( "\n", "," ).split( "," )
+        for num in numbers.split( "," )
         if numbers
     ]
 
@@ -19,13 +19,14 @@ def add( numbers: str ) -> int:
 
 
 def parseDelim( numbers: str ) -> str:
-    if numbers[ :2 ] == "//":
+    if numbers[ :2 ] != "//":
+        return numbers.replace( "\n", "," )
 
-        idx = numbers.index( "\n" )
-        delims = numbers[ 2:idx ].replace( "][", "," ).replace( "[", "" ).replace( "]", "")
-        numbers = numbers[ idx+1: ]
+    idx = numbers.index( "\n" )
+    delims = numbers[ 2:idx ].replace( "][", "," ).replace( "[", "" ).replace( "]", "")
+    numbers = numbers[ idx+1: ]
 
-        for delim in delims.split( "," ):
-            numbers = numbers.replace( delim, "," )
+    for delim in delims.split( "," ):
+        numbers = numbers.replace( delim, "," )
 
     return numbers
