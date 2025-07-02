@@ -11,3 +11,6 @@ main = hspec $ do
 
     it "single number remains as is" $ do
       add "55" `shouldBe` 55
+
+    it "two numbers are summed" $ do
+      add "64,5" `shouldBe` 69
