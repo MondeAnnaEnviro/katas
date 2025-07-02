@@ -3,8 +3,12 @@
 def add( numbers: str ) -> int:
     if numbers[ :2 ] == "//":
         idx = numbers.index( "\n" )
-        delim = numbers[ 2:idx ].replace( "[", "" ).replace( "]", "")
-        numbers = numbers[ idx+1: ].replace( delim, "," )
+        delims = numbers[ 2:idx ].replace( "][", "," ).replace( "[", "" ).replace( "]", "")
+        numbers = numbers[ idx+1: ]
+
+        for delim in delims.split( "," ):
+            print( delims )
+            numbers = numbers.replace( delim, "," )
 
     nums = [
         int( num ) if int( num ) <= 1000 else 0
