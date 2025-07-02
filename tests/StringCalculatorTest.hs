@@ -5,6 +5,6 @@ import Test.Hspec
 
 main :: IO ()
 main = hspec $ do
-  describe "jibberish" $ do
-    it "words" $ do
-      0 `shouldBe` 0
+  describe "sum delimiterd numbers:" $ do
+    it "empty string renders zero" $ do
+      add "" `shouldBe` 0
