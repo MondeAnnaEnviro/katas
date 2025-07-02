@@ -14,3 +14,6 @@ main = hspec $ do
 
     it "two numbers sums into int" $ do
       add "55,2" `shouldBe` 57
+
+    it "n numbers summed into int" $ do
+      add "1,2,3,4" `shouldBe` 10
