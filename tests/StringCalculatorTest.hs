@@ -16,3 +16,6 @@ main = hspec $ do
 
     it "two numbers returned as sum" $ do
       add "5,5" `shouldBe` 10
+
+    it "n numbers returned as sum" $ do
+      add "5,55,5" `shouldBe` 65
