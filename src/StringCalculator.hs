@@ -6,7 +6,15 @@ import Data.List.Split
 
 add :: String -> Int
 add "" = 0
-add numbers = sum . oneThousandOrLess . parseNegs $ [ read num :: Int | num <- multiSplit ( getDelims numbers )( getBody numbers )]
+add numbers = sum . oneThousandOrLess . parseNegs . intList . numsList $ numbers
+
+
+intList :: [String] -> [Int]
+intList numbers = [ read num :: Int | num <- numbers ]
+
+
+numsList :: String -> [String]
+numsList numbers =  multiSplit ( getDelims numbers )( getBody numbers )
 
 
 getBody :: String -> String
