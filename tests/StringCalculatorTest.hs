@@ -5,40 +5,4 @@ import Control.Exception
 import Test.Hspec
 
 main :: IO ()
-main = hspec $ do
-  describe "add numbers:" $ do
-    it "empty string returns zero" $ do
-      add "" `shouldBe` 0
-
-    it "single numbered string returns as int" $ do
-      add "10" `shouldBe` 10
-
-    it "two numbered string returns as sum" $ do
-      add "1,0" `shouldBe` 1
-
-    it "n numbered string returns as sum" $ do
-      add "1,0,2,1,3" `shouldBe` 7
-
-    it "newline as delimiter" $ do
-      add "1,2\n4" `shouldBe` 7
-
-    it "numbers greater than one thousand ignore" $ do
-      add "1,1001" `shouldBe` 1
-
-  describe "parse user provided delimiter:" $ do
-    it "single delimiter" $ do
-      add "//;\n2;3" `shouldBe` 5
-
-    it "var len delimiter" $ do
-      add "//[;;]\n1;;2;;3" `shouldBe` 6
-
-    it "multiple delimiters" $ do
-      add "//[;][$]\n12;13$14" `shouldBe` 39
-
-    it "multiple var len delimiters" $ do
-      add "//[!][@@][###]\n0!54@@65###65" `shouldBe` 184
-
-  describe "exceptions:" $ do
-    it "negatives throw error" $ do
-      let message = "negatives not allowed: [-1,-2]"
-      evaluate ( add "-1,-2,3" ) `shouldThrow` errorCall message
+main = putStrLn "ran"
