@@ -29,6 +29,9 @@ main = hspec $ do
     it "single delimiter" $ do
       add "//$\n54$45" `shouldBe` 99
 
+    it "var len delimiter" $ do
+      add "//[$$$]\n4$$$4" `shouldBe` 8
+
   describe "exception handling:" $ do
     it "negatives throw error" $ do
       let message = "negatives not allowed: [-2,-2]"
