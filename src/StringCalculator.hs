@@ -6,7 +6,7 @@ import Data.List.Split
 
 add :: String -> Int
 add "" = 0
-add numbers = sum . oneThousandOrLess . parseNegs $ [ read num :: Int | num <- multiSplit ( getDelims numbers )( getBody numbers )]
+add numbers = sum . oneThousandOrLess . parseNegs . intList . numList $ numbers
 
 
 getBody :: String -> String
@@ -33,8 +33,16 @@ hasNegs :: [Int] -> Bool
 hasNegs integers = any ( < 0 ) integers
 
 
+intList :: [String] -> [Int]
+intList numbers = [ read num :: Int | num <- numbers ]
+
+
 multiSplit :: [String] -> String -> [String]
 multiSplit delims nums = foldl (\ xs d -> xs >>= splitOn d ) [nums] delims
+
+
+numList :: String -> [String]
+numList numbers = multiSplit ( getDelims numbers )( getBody numbers )
 
 
 oneThousandOrLess :: [Int] -> [Int]
