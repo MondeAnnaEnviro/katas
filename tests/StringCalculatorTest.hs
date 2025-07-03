@@ -12,3 +12,6 @@ main = hspec $ do
 
     it "one number returned as int" $ do
       add "3" `shouldBe` 3
+
+    it "two numbers are summed" $ do
+      add "43,34" `shouldBe` 77
