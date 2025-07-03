@@ -15,3 +15,6 @@ main = hspec $ do
 
     it "two numbers are summed" $ do
       add "43,34" `shouldBe` 77
+
+    it "n numbers are summed" $ do
+      add "4,3,3,4" `shouldBe` 14
