@@ -5,4 +5,7 @@ import Control.Exception
 import Test.Hspec
 
 main :: IO ()
-main = putStrLn "\n\nran\n\n"
+main = hspec $ do
+  describe "sum delimiters numbers:" $ do
+    it "empty string results in zero" $ do
+      add "" `shouldBe` 0
