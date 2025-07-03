@@ -21,3 +21,7 @@ main = hspec $ do
 
     it "newline as delimiter" $ do
       add "1,2\n3" `shouldBe` 6
+
+  describe "parse user defined delimiter:" $ do
+    it "single delimiter" $ do
+      add "//$\n54$45" `shouldBe` 99
