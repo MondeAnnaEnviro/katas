@@ -25,3 +25,8 @@ main = hspec $ do
   describe "parse user defined delimiter:" $ do
     it "single delimiter" $ do
       add "//$\n54$45" `shouldBe` 99
+
+  describe "exception handling:" $ do
+    it "negatives throw error" $ do
+      let message = "negatives not allowed: [-2,-2]"
+      evaluate ( add "-2,2,-2" ) `shouldThrow` errorCall message
