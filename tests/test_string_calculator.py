@@ -12,3 +12,7 @@ def test_single_numbers():
 
 def test_two_numbers():
     add( "23,32" ) == 55
+
+
+def test_n_numbers():
+    add( "2,3,3,2" ) == 10
