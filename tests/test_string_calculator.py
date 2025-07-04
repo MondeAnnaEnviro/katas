@@ -3,8 +3,12 @@ import pytest
 
 
 def test_empty_string():
-    add ( "" ) == 0
+    add( "" ) == 0
 
 
 def test_single_numbers():
-    add ( "65" ) == 65
+    add( "65" ) == 65
+
+
+def test_two_numbers():
+    add( "23,32" ) == 55
