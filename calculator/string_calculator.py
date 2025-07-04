@@ -1,11 +1,7 @@
 
 
 def add( numbers: str ) -> int:
-    if numbers[ :2 ] == "//":
-        idx = numbers.index( "\n" )
-        delim = numbers[ 2:idx ]
-        numbers = numbers[ idx+1: ].replace( delim, "," )
-    numbers = numbers.replace( "\n", "," )
+    numbers = standardise_delims( numbers )
 
     nums = [
         int( num )
@@ -20,3 +16,15 @@ def add( numbers: str ) -> int:
         raise ValueError( f"negatives not allowed: {negsStr}" )
 
     return sum( nums )
+
+
+def standardise_delims( numbers: str ) -> str:
+    if numbers[ :2 ] != "//":
+        return numbers.replace( "\n", "," )
+
+    idx = numbers.index( "\n" )
+    delim = numbers[ 2:idx ]
+
+    return numbers[ idx+1: ].replace( delim, "," )
+
+
