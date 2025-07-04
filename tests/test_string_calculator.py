@@ -20,3 +20,7 @@ def test_n_numbers():
 
 def test_newline_as_delimiter():
     add( "1,2\n3" ) == 6
+
+
+def test_user_delim():
+    add ( "//;\n1;2" ) == 3
