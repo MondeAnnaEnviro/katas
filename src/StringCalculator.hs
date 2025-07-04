@@ -24,7 +24,7 @@ getBody numbers
 getDelims :: String -> [String]
 getDelims numbers
   | not . hasFlag $ numbers = [",", "\n"]
-  | otherwise = [ dropBrackets . drop 2 $ head . splitOn "\n" $ numbers]
+  | otherwise = multiSplit ["]["] $ dropBrackets . drop 2 $ head . splitOn "\n" $ numbers
 
 
 getNegs :: [Int] -> [Int]
