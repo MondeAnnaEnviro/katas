@@ -6,7 +6,7 @@ import Data.List.Split
 
 add :: String -> Int
 add "" = 0
-add numbers = sum . parseNegs $ [ read num :: Int | num <- numsList $ numbers ]
+add numbers = sum . thousandOrLess . parseNegs $ [ read num :: Int | num <- numsList $ numbers ]
 
 
 getBody :: String -> String
@@ -45,3 +45,7 @@ parseNegs :: [Int] -> [Int]
 parseNegs integers
   | not . hasNegs $ integers = integers
   | otherwise = error $ "negatives not allowed: " ++ show ( getNegs integers )
+
+
+thousandOrLess :: [Int] -> [Int]
+thousandOrLess integers = filter ( <= 1000 ) integers
