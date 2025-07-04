@@ -23,11 +23,15 @@ def test_newline_as_delimiter():
 
 
 def test_num_over_one_thousand_ignore():
-    add ( "1,1001" ) == 1
+    add( "1,1001" ) == 1
 
 
 def test_user_delim():
-    add ( "//;\n1;2" ) == 3
+    add( "//;\n1;2" ) == 3
+
+
+def test_var_len_user_delim():
+    add( "//[%%]\n2%%3" ) == 5
 
 
 def test_negatives_raise_error():
