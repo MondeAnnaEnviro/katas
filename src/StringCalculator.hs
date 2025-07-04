@@ -6,7 +6,7 @@ import Data.List.Split
 
 add :: String -> Int
 add "" = 0
-add numbers = sum [ read num :: Int | num <- numsList $ numbers ]
+add numbers = sum . parseNegs $ [ read num :: Int | num <- numsList $ numbers ]
 
 
 getBody :: String -> String
@@ -21,8 +21,16 @@ getDelims numbers
   | otherwise = [ drop 2 $ head . splitOn "\n" $ numbers]
 
 
+getNegs :: [Int] -> [Int]
+getNegs integers = filter ( < 0 ) integers
+
+
 hasFlag :: String -> Bool
 hasFlag numbers = take 2 numbers == "//"
+
+
+hasNegs :: [Int] -> Bool
+hasNegs integers = any ( < 0 ) integers
 
 
 multiSplit :: [String] -> String -> [String]
@@ -31,3 +39,9 @@ multiSplit delims nums = foldl (\ xs d -> xs >>= splitOn d ) [nums] delims
 
 numsList :: String -> [String]
 numsList numbers = multiSplit ( getDelims numbers )( getBody numbers )
+
+
+parseNegs :: [Int] -> [Int]
+parseNegs integers
+  | not . hasNegs $ integers = integers
+  | otherwise = error $ "negatives not allowed: " ++ show ( getNegs integers )
