@@ -34,6 +34,10 @@ def test_var_len_user_delim():
     add( "//[%%]\n2%%3" ) == 5
 
 
+def test_multiple_user_delims():
+    add( "//[%][$]\n2%3$4" ) == 9
+
+
 def test_negatives_raise_error():
     match = "negatives not allowed: -1, -2"
     with pytest.raises( ValueError, match=match ):

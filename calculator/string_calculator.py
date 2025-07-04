@@ -23,8 +23,12 @@ def standardise_delims( numbers: str ) -> str:
         return numbers.replace( "\n", "," )
 
     idx = numbers.index( "\n" )
-    delim = numbers[ 2:idx ].replace( "[", "" ).replace( "]", "" )
+    delims = numbers[ 2:idx ].replace( "][", "," ).replace( "[", "" ).replace( "]", "" )
+    numbers = numbers[ idx+1: ]
 
-    return numbers[ idx+1: ].replace( delim, "," )
+    for delim in delims.split( "," ):
+        numbers = numbers.replace( delim, "," )
+
+    return numbers
 
 
