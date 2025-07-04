@@ -6,7 +6,7 @@ import Data.List.Split
 
 add :: String -> Int
 add "" = 0
-add numbers = sum [ read num :: Int | num <- multiSplit ( getDelims numbers )( getBody numbers )]
+add numbers = sum [ read num :: Int | num <- numsList $ numbers ]
 
 
 getBody :: String -> String
@@ -27,3 +27,7 @@ hasFlag numbers = take 2 numbers == "//"
 
 multiSplit :: [String] -> String -> [String]
 multiSplit delims nums = foldl (\ xs d -> xs >>= splitOn d ) [nums] delims
+
+
+numsList :: String -> [String]
+numsList numbers = multiSplit ( getDelims numbers )( getBody numbers )
