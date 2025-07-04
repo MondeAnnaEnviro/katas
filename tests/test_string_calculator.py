@@ -16,3 +16,7 @@ def test_two_numbers():
 
 def test_n_numbers():
     add( "2,3,3,2" ) == 10
+
+
+def test_newline_as_delimiter():
+    add( "1,2\n3" ) == 6
