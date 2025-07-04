@@ -1,5 +1,6 @@
 # dir
 **__pycache__
+.coverage
 dist-newstyle/
 src/
 target/
