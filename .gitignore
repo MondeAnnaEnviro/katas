@@ -5,3 +5,5 @@ dist-newstyle/
 src/
 target/
 **.swp
+.venv
+**.egg-info/

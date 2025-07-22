@@ -1,0 +1,20 @@
+[project]
+name = "str_calc_python"
+version = "0.1.0"
+description = "word"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{ name = "Human Being" }]
+keywords = [ "your", "keywords" ]
+classifiers = [ "Programming Language :: Python :: 3", "Operating System :: OS Independent" ]
+
+[project.urls]
+Homepage = "https://github.com/your_username/your_package_name"
+Repository = "https://github.com/your_username/your_package_name"
+
+[project.optional-dependencies]
+dev = [ "pytest", "black", "pytest-watch" ]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
