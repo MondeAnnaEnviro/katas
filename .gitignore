@@ -7,3 +7,4 @@ target/
 **.swp
 .venv
 **.egg-info/
+.vscode/
